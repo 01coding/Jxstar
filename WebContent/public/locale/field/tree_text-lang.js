@@ -1,0 +1,1 @@
+﻿jdLang['tree_text'] = {};jdLang['tree_text'].zh = {	'v_sys_text__keyname':'键值',	'v_sys_text__keylevel':'级别'};jdLang['tree_text'].en = {	'v_sys_text__keyname':'Key value',	'v_sys_text__keylevel':'Level'};

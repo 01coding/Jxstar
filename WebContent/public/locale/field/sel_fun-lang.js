@@ -1,0 +1,1 @@
+﻿jdLang['sel_fun'] = {};jdLang['sel_fun'].zh = {	'fun_base__fun_name':'功能名称',	'fun_base__fun_id':'功能ID',	'fun_base__reg_type':'注册类型',	'fun_base__module_id':'功能模块ID'};jdLang['sel_fun'].en = {	'fun_base__fun_name':'Function name',	'fun_base__fun_id':'Function ID',	'fun_base__reg_type':'Regist type',	'fun_base__module_id':'Function module ID'};

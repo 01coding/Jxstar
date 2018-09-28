@@ -1,0 +1,1 @@
+﻿config.eventcfg = {				dataImportParam: function() {			var userId = this.grid.fkValue;			var options = {				whereSql: 'role_id not in (select role_id from sys_user_role where user_id = ?)',				whereValue: userId,				whereType: 'string'			};			return options;		}			};

@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<functions memo="函数标识定义及解析内容">
+	<function memo="字符串型值转换成日期型值,函数写法:{TO_DATE}(v_str)">
+		<functionid memo="函数标识">{TO_DATE}</functionid>
+		<oracle>to_date(@v1, 'yyyy-mm-dd')</oracle>
+		<sqlserver>CONVERT(datetime, @v1, 20)</sqlserver>
+		<mysql>date_format(@v1, GET_FORMAT(date,'ISO'))</mysql>
+		<db2>to_date(@v1, 'yyyy-mm-dd')</db2>
+	</function>
+	<function memo="字符串型值转换成日期时间型值,函数写法:{TO_DATETIME}(v_str)">
+		<functionid memo="函数标识">{TO_DATETIME}</functionid>
+		<oracle>to_date(@v1, 'yyyy-mm-dd hh24:mi:ss')</oracle>
+		<sqlserver>CONVERT(datetime, @v1, 20)</sqlserver>
+		<mysql>date_format(@v1, GET_FORMAT(datetime,'ISO'))</mysql>
+		<db2>to_date(@v1, 'yyyy-mm-dd hh24:mi:ss')</db2>
+	</function>
+	<function memo="日期型值转换成字符串型值,函数写法:{TO_STR}(v_date)">
+		<functionid memo="函数标识">{TO_STR}</functionid>
+		<oracle>to_char(@v1, 'yyyy-mm-dd')</oracle>
+		<sqlserver>CONVERT(varchar(10), @v1, 20)</sqlserver>
+		<mysql>date_format(@v1, '%Y-%m-%d')</mysql>
+		<db2>to_char(@v1, 'yyyy-mm-dd')</db2>
+	</function>
+	<function memo="日期型值转换成年月字符串型值,函数写法:{TO_YEARMONTH}(v_date)">
+		<functionid memo="函数标识">{TO_YEARMONTH}</functionid>
+		<oracle>to_char(@v1, 'yyyy-mm')</oracle>
+		<sqlserver>CONVERT(varchar(7), @v1, 20)</sqlserver>
+		<mysql>date_format(@v1, '%Y-%m')</mysql>
+		<db2>to_char(@v1, 'yyyy-mm')</db2>
+	</function>
+	<function memo="日期型值转换成年字符串型值,函数写法:{TO_YEAR}(v_date)">
+		<functionid memo="函数标识">{TO_YEAR}</functionid>
+		<oracle>to_char(@v1, 'yyyy')</oracle>
+		<sqlserver>year(@v1)</sqlserver>
+		<mysql>date_format(@v1, '%Y')</mysql>
+		<db2>to_char(@v1, 'yyyy')</db2>
+	</function>
+	<function memo="日期型值转换成月字符串型值,函数写法:{TO_MONTH}(v_date)">
+		<functionid memo="函数标识">{TO_MONTH}</functionid>
+		<oracle>to_char(@v1, 'mm')</oracle>
+		<sqlserver>month(@v1)</sqlserver>
+		<mysql>date_format(@v1, '%m')</mysql>
+		<db2>to_char(@v1, 'mm')</db2>
+	</function>
+	<function memo="返回日期型值1-日期型值2 的天数,函数写法:{DATEDIFF}(v_date1, v_date2)">
+		<functionid memo="函数标识">{DATEDIFF}</functionid>
+		<oracle>(@v1 - @v2)</oracle>
+		<sqlserver>datediff(day, @v2, @v1)</sqlserver>
+		<mysql>datediff(@v1, @v2)</mysql>
+		<db2>(@v1 - @v2)/86400</db2>
+	</function>
+	<function memo="返回日期型值+天数,函数写法:{DATEADD}(v_date, v_day)">
+		<functionid memo="函数标识">{DATEADD}</functionid>
+		<oracle>(@v1 + @v2)</oracle>
+		<sqlserver>dateadd(day, @v2, @v1)</sqlserver>
+		<mysql>date_add(@v1, interval @v2 day)</mysql>
+		<db2>(@v1 + @v2 day)</db2>
+	</function>
+	<function memo="返回日期型值+月数,函数写法:{MONTHADD}(v_date, v_mon)">
+		<functionid memo="函数标识">{MONTHADD}</functionid>
+		<oracle>add_months(@v1, @v2)</oracle>
+		<sqlserver>dateadd(month, @v2, @v1)</sqlserver>
+		<mysql>date_add(@v1, interval @v2 month)</mysql>
+		<db2>(@v1 + @v2 month)</db2>
+	</function>
+	<function memo="把字符串1、字符串2拼起来,函数写法:{JOINSTR}(v_str1, v_str2)">
+		<functionid memo="函数标识">{JOINSTR}</functionid>
+		<oracle>@v1 || @v2</oracle>
+		<sqlserver>@v1 + @v2</sqlserver>
+		<mysql>concat(@v1, @v2)</mysql>
+		<db2>@v1 || @v2</db2>
+	</function>
+	<function memo="取当前日期,函数写法:{TODAY}">
+		<functionid memo="函数标识">{TODAY}</functionid>
+		<isparse-param memo="是否需要解析参数,值[1]表示要解析,[0]表示不要解析">0</isparse-param>
+		<oracle>sysdate</oracle>
+		<sqlserver>getdate()</sqlserver>
+		<mysql>curdate()</mysql>
+		<db2>sysdate</db2>
+	</function>
+	<function memo="返回字段为空的缺省值,函数写法:{ISNULL}">
+		<functionid memo="函数标识">{ISNULL}</functionid>
+		<isparse-param memo="是否需要解析参数,值[1]表示要解析,[0]表示不要解析">0</isparse-param>
+		<oracle>nvl</oracle>
+		<sqlserver>isnull</sqlserver>
+		<mysql>ifnull</mysql>
+		<db2>nvl</db2>
+	</function>
+	<function memo="获取子字符串，第一个字符的序号为1,函数写法:{SUBSTR}">
+		<functionid memo="函数标识">{SUBSTR}</functionid>
+		<isparse-param memo="是否需要解析参数,值[1]表示要解析,[0]表示不要解析">0</isparse-param>
+		<oracle>substr</oracle>
+		<sqlserver>substring</sqlserver>
+		<mysql>substring</mysql>
+		<db2>substr</db2>
+	</function>
+	<function memo="自定义对象的用户名,函数写法:{DBO}">
+		<functionid memo="函数标识">{DBO}</functionid>
+		<isparse-param memo="是否需要解析参数,值[1]表示要解析,[0]表示不要解析">0</isparse-param>
+		<oracle> </oracle>
+		<sqlserver>dbo.</sqlserver>
+		<mysql> </mysql>
+		<db2> </db2>
+	</function>
+	<function memo="过滤这个标识,在系统中该标识为: 数据有效值">
+		<functionid memo="函数标识">{VALIDDATAWHERE}</functionid>
+		<isparse-param memo="是否需要解析参数,值[1]表示要解析,[0]表示不要解析">0</isparse-param>
+		<oracle>{VALIDDATAWHERE}</oracle>
+		<sqlserver>{VALIDDATAWHERE}</sqlserver>
+		<mysql>{VALIDDATAWHERE}</mysql>
+		<db2>{VALIDDATAWHERE}</db2>
+	</function>
+	<function memo="过滤这个标识,在系统中该标识为: 当前功能的主表主键值">
+		<functionid memo="函数标识">{PARENTKEYVAL}</functionid>
+		<isparse-param memo="是否需要解析参数,值[1]表示要解析,[0]表示不要解析">0</isparse-param>
+		<oracle>{PARENTKEYVAL}</oracle>
+		<sqlserver>{PARENTKEYVAL}</sqlserver>
+		<mysql>{PARENTKEYVAL}</mysql>
+		<db2>{PARENTKEYVAL}</db2>
+	</function>
+</functions>

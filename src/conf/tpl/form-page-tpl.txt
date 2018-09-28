@@ -1,0 +1,15 @@
+Jxstar.currentPage = function() {
+	var config = {param:{},initpage:function(page, define){},eventcfg:{}};
+	
+	<element:items/>
+	
+	config.param = {
+		items: items,
+		funid: '<param:fun_id/>'
+	};
+
+	<element:funAttr/>
+	<element:incPage/>
+	
+	return new Jxstar.FormNode(config);
+}

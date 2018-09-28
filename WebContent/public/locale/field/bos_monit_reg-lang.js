@@ -1,0 +1,1 @@
+﻿jdLang['bos_monit_reg'] = {};jdLang['bos_monit_reg'].zh = {};jdLang['bos_monit_reg'].en = {};

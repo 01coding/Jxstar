@@ -1,0 +1,20 @@
+
+.taskTip
+{
+	font-size:11px;
+}
+
+.taskTip td
+{
+	width:70px;
+}
+
+.sch-gantt-parenttask-bar  {
+	background:none repeat scroll 0 0 #FFBC00;
+	border:1px solid red;
+}
+
+.sch-gantt-parenttask-bar .sch-gantt-progress-bar {
+	background:none repeat scroll 0 0 #FFF3A5;
+}
+

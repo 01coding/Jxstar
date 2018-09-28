@@ -1,0 +1,19 @@
+Jxstar.currentPage = function() {
+	var config = {param:{},initpage:function(page, define){},eventcfg:{}};
+
+	<element:columnModel/>
+	
+	config.param = {
+		cols: cols,
+		sorts: null,
+		hasQuery: '<param:is_query/>',
+		isedit: '<param:isedit/>',
+		isshow: '<param:init_show/>',
+		funid: '<param:fun_id/>'
+	};
+	
+	<element:funAttr/>
+	<element:incPage/>
+		
+	return new Jxstar.GridNode(config);
+}

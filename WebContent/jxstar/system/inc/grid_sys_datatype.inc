@@ -1,0 +1,3 @@
+﻿	config.eventcfg = {		
+		/**		* 批量添加		**/		addtype : function(eventCode) {				var records = this.grid.getSelectionModel().getSelections();			if (!JxUtil.selected(records)) return;			var self = this;			var hdcall = function() {				//取选择记录的主键值				var params = 'funid='+ self.define.nodeid;				for (var i = 0; i < records.length; i++) {					params += '&keyid=' + records[i].get(self.define.pkcol);				}								//添加选择的功能ID				params += '&selfunid=' + self.grid.fkValue;				//设置请求的参数				params += '&pagetype='+eventCode+'&eventcode='+eventCode;				//发送请求				Request.postRequest(params, null);			};			//'确定执行当前操作吗？'			Ext.Msg.confirm(jx.base.hint, jx.event.doyes, function(btn) {				if (btn == 'yes') hdcall();			});		}		
+	};

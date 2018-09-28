@@ -1,0 +1,1 @@
+﻿jdLang['store_stat'] = {};jdLang['store_stat'].zh = {};jdLang['store_stat'].en = {};

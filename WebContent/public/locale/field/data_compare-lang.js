@@ -1,0 +1,1 @@
+﻿jdLang['data_compare'] = {};jdLang['data_compare'].zh = {};jdLang['data_compare'].en = {};

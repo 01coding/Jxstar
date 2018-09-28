@@ -1,0 +1,2 @@
+	config.initpage = function(pageNode){		var grid = pageNode.page;		grid.getStore().on('load', function(s){		grid.getSelectionModel().selectFirstRow();		grid.fireEvent('rowclick', grid, 0);	});
+};

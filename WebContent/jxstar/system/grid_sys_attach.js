@@ -1,0 +1,36 @@
+﻿Jxstar.currentPage = function() {
+	var config = {param:{},initpage:function(page, define){},eventcfg:{}};
+
+	var cols = [
+	{col:{header:'附件名称', width:299, sortable:true}, field:{name:'sys_attach__attach_name',type:'string'}},
+	{col:{header:'附件ID', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__attach_id',type:'string'}},
+	{col:{header:'表名', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__table_name',type:'string'}},
+	{col:{header:'功能名称', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__fun_name',type:'string'}},
+	{col:{header:'功能ID', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__fun_id',type:'string'}},
+	{col:{header:'记录ID', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__data_id',type:'string'}},
+	{col:{header:'文件名', width:215, sortable:true, hidden:true}, field:{name:'sys_attach__attach_path',type:'string'}},
+	{col:{header:'上传人', width:78, sortable:true}, field:{name:'sys_attach__upload_user',type:'string'}},
+	{col:{header:'上传日期', width:138, sortable:true, align:'center',
+		renderer:function(value) {
+			return JxUtil.renderDate(value, 'Y-m-d H:i');
+		}}, field:{name:'sys_attach__upload_date',type:'date'}},
+	{col:{header:'文件类型', width:117, sortable:true, hidden:true}, field:{name:'sys_attach__content_type',type:'string'}},
+	{col:{header:'相关字段', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__attach_field',type:'string'}},
+	{col:{header:'附件库', width:66, sortable:true, align:'right',renderer:JxUtil.formatInt()}, field:{name:'sys_attach__store_no',type:'int'}},
+	{col:{header:'附件库ID', width:100, sortable:true, colindex:10000, hidden:true}, field:{name:'sys_attach__store_id',type:'string'}}
+	];
+	
+	config.param = {
+		cols: cols,
+		sorts: null,
+		hasQuery: '0',
+		isedit: '0',
+		isshow: '0',
+		funid: 'sys_attach'
+	};
+	
+	
+	var checkflash = function(){		if (Ext.isIE8 || Ext.isIE7 || Ext.isIE6) {			var b = Ext.getBody();			var ft = Ext.get('flash_test_object');			if (!ft) {				b.insertHtml('afterBegin', '<OBJECT id="flash_test_object" style="OUTLINE-WIDTH: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert"  codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000 width="0%" height="0%" type="application/x-shockwave-flash"></OBJECT>');			}		}	};	//通过绑定grid事件cellclick，下载附件	for (var i = 0; i < cols.length; i++) {		var f = cols[i].field;		if (f && f.name.indexOf('__attach_name') > 0) {			cols[i].col.renderer = function(val, metaData, record) {				return '<a class="x-ashow">'+ val +'</a>';			};		}	}	config.eventcfg = {		delFile: function() {			var records = this.grid.getSelectionModel().getSelections();			if (!JxUtil.selected(records)) return;						var self = this;			var pkcol = self.define.pkcol;			var hdcall = function() {				var keys = '';				for (var i = 0; i < records.length; i++) {					keys += '&keyid=' + records[i].get(pkcol);				}				var params = 'funid=sys_attach'+ keys +'&pagetype=editgrid&eventcode=delete';				var endcall = function(data) {					self.grid.getStore().reload();				};				//发送请求				Request.postRequest(params, endcall);			};						//'确定删除选择的记录吗？'			Ext.Msg.confirm(jx.base.hint, jx.event.delyes, function(btn) {				if (btn == 'yes') hdcall();			});		}, 				downFile: function() {			var records = this.grid.getSelectionModel().getSelections();			if (!JxUtil.selectone(records)) return;						var keyid = records[0].get(this.define.pkcol);			var params = 'funid=sys_attach&keyid='+ keyid +'&pagetype=editgrid&eventcode=down';			Request.attachDown(params);		},				//添加批量上传按钮		addAttach: function() {			var grid = this.grid;			var dataId = grid.attachDataId || '';			var dataFunId = grid.attachFunId || '';			var winid = 'win_'+JxUtil.newId();			var href = Jxstar.path+'/jxstar/other/upload/upload.jsp?winid='+winid+'&dataid='+dataId+'&datafunid='+dataFunId+'&user_id='+Jxstar.session['user_id'];						var ifrHtml = '<iframe frameborder="no" style="display:none;border-width:0;width:100%;height:100%;" ></iframe>';			var win = new Ext.Window({				id:winid,				title: jx.bus.text43,//'批量上传附件', 				layout: 'fit',				width: 600,				height: 450,				constrainHeader: true,				resizable: true,				border: false,				modal: true,				closeAction: 'close',				autoScroll: false,				items: [{					xtype:'container',					html: ifrHtml				}]			});			win.show();			var frm = win.getEl().child('iframe');				frm.dom.src = href + '&_dc=' + (new Date()).getTime();//避免缓存				frm.show();			win.on('close', function(){grid.getStore().reload();});		}	};		//业务记录复核后不能删除附件	config.initpage = function(gridNode){		var grid = gridNode.page;		//绑定点击事件，下载或者预览文件		grid.on('cellclick', JxAttach.showWinDoc);				//查询关联附件		var queryRelat = function(tbar) {			//取来源功能ID与数据ID			var dataId = grid.attachDataId;			var dataFunId = grid.attachFunId;			if (!dataId || dataId.length == 0) return;			if (!dataFunId || dataFunId.length == 0) return;						var hdCall = function(data) {				if (Ext.isEmpty(data)) return;								var mitems = [];				for (var i = 0; i < data.length; i++) {					var data_id = data[i].data_id;					var attach_id = data[i].attach_id;					var attach_name = data[i].attach_name;					var content_type = data[i].content_type;										//构建附件菜单					var cfg = {						id:attach_id,						text:attach_name, 						handler:function(){							var params = 'funid=sys_attach&keyid='+ this.id +'&pagetype=editgrid&eventcode=down';							Request.attachDown(params);						}					};					//添加附件菜单					mitems[mitems.length] = cfg;				}								var len = data.length;				//先删除原来的按钮				var oldbtn = tbar.find('mycode', 'relat_menu')[0];				if (oldbtn) {tbar.remove(oldbtn, true);}				//再添加新的按钮				var menu = new Ext.menu.Menu({items: mitems});				tbar.add({					mycode: 'relat_menu',					text: jx.bus.text42 + '['+ len +']',//相关附件					iconCls: 'eb_menu',					menu: menu				});				tbar.doLayout();			};						//从后台查询任务信息			var params = 'funid=sys_attach&pagetype=editgrid&eventcode=query_relat';				params += '&dataFunId='+ dataFunId +'&dataId='+ dataId;			Request.dataRequest(params, hdCall);		};				var hd = function(){			var deled = grid.attachDeled;			var tbar = grid.getTopToolbar();			JxUtil.disableButton(tbar, (!deled));			//检查flash控件			checkflash();						//处理关联附件查询			var relat = Jxstar.systemVar.sys__attach__relat;			if (relat == '1' && gridNode.state == '0') {				tbar.add('-');				tbar.add({					mycode: 'relat_menu',					text: jx.bus.text42 + '[0]',//相关附件					iconCls: 'eb_menu',					disabled: true				});				tbar.doLayout();								queryRelat(tbar);			}		};		var callhd = function() {			var tbar = grid.getTopToolbar();			var btn = JxUtil.getButton(tbar, 'delete');			if (tbar && btn) {				hd();			} else {				JxUtil.delay(1000, callhd);			}		};		JxUtil.delay(1000, callhd);	};
+		
+	return new Jxstar.GridNode(config);
+}

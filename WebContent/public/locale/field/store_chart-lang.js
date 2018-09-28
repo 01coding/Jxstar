@@ -1,0 +1,1 @@
+﻿jdLang['store_chart'] = {};jdLang['store_chart'].zh = {};jdLang['store_chart'].en = {};

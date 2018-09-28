@@ -1,0 +1,27 @@
+<mxEditor>
+	<mxDefaultKeyHandler as="keyHandler">
+		<add as="8" action="collapse"/> 					<!--BACKSPACE-->
+		<add as="13" action="expand"/> 						<!--ENTER-->
+		<add as="33" action="exitGroup"/> 					<!--PAGEUP-->
+		<add as="34" action="enterGroup"/> 					<!--PAGEDOWN-->
+		<add as="35" action="refresh"/> 					<!--END-->
+		<add as="36" action="home"/> 						<!--HOME-->
+		<add as="37" action="selectPrevious"/> 				<!--LEFT-->
+		<add as="38" action="selectParent"/> 				<!--UP-->
+		<add as="40" action="selectChild"/> 				<!--DOWN-->
+		<add as="39" action="selectNext"/> 					<!--RIGHT-->
+		<add as="46" action="delete"/> 						<!--DELETE-->
+		<add as="65" control="1" action="selectAll"/> 		<!--CTRL+A-->
+		<add as="90" control="1" action="undo"/> 			<!--CTRL+Z-->
+		<add as="89" control="1" action="redo"/> 			<!--CTRL+Y-->
+		<add as="88" control="1" action="cut"/> 			<!--CTRL+X-->
+		<add as="67" control="1" action="copy"/> 			<!--CTRL+C-->
+		<add as="86" control="1" action="paste"/> 			<!--CTRL+V-->
+		<add as="71" control="1" action="group"/> 			<!--CTRL+G-->
+		<add as="85" control="1" action="ungroup"/> 		<!--CTRL+U-->
+		<add as="113" action="edit"/>		 				<!--F2-->
+		<!--<add as="123" action="showProperties"/>--> 			<!--F12-->
+		<add as="107" action="zoomIn"/> 					<!--NUM_PLUS-->
+		<add as="109" action="zoomOut"/> 					<!--NUM_MINUS-->
+	</mxDefaultKeyHandler>
+</mxEditor>

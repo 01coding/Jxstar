@@ -1,0 +1,1 @@
+﻿<%@ page contentType="text/html; charset=UTF-8"%><%org.jxstar.control.login.ProxyLogin.process(request, response);%>

@@ -1,0 +1,1 @@
+﻿jdLang['app_list'] = {};jdLang['app_list'].zh = {};jdLang['app_list'].en = {};

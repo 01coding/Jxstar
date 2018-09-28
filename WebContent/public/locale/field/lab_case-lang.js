@@ -1,0 +1,1 @@
+﻿jdLang['lab_case'] = {};jdLang['lab_case'].zh = {	'lab_case__case_code':'方案编号',	'lab_case__case_name':'方案名称',	'lab_case__auditing':'状态',	'lab_case__case_id':'主键'};jdLang['lab_case'].en = {	'lab_case__case_code':'Package number',	'lab_case__case_name':'Package name',	'lab_case__auditing':'State',	'lab_case__case_id':'Primary key'};

@@ -1,0 +1,1 @@
+﻿jdLang['fun_layout'] = {};jdLang['fun_layout'].zh = {	'funall_layout__layout_path':'布局路径',	'funall_layout__layout_memo':'布局描述',	'funall_layout__layout_id':'布局ID'};jdLang['fun_layout'].en = {	'funall_layout__layout_path':'Layout path',	'funall_layout__layout_memo':'Layout description',	'funall_layout__layout_id':'Layout ID'};

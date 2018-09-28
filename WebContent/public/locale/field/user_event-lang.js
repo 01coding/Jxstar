@@ -1,0 +1,1 @@
+﻿jdLang['user_event'] = {};jdLang['user_event'].zh = {};jdLang['user_event'].en = {};

@@ -1,0 +1,207 @@
+/*!
+ * Ext JS Library 3.3.1
+ * Copyright(c) 2006-2010 Sencha Inc.
+ * licensing@sencha.com
+ * http://www.sencha.com/license
+ */
+.x-treegrid-root-table {
+    border-right: 1px solid;
+}
+
+.x-treegrid-root-node {
+    overflow: auto;
+}
+
+.x-treegrid-hd-hidden {
+    visibility: hidden;
+    border: 0;
+    width: 0;
+}
+
+.x-treegrid-col {
+    border-bottom: 1px solid;
+	padding-top:3px;
+	padding-bottom:3px;
+	line-height: 18px;
+	vertical-align: middle;
+    overflow: hidden;
+    /*vertical-align: top;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;*/
+    white-space: nowrap;
+}
+
+.x-treegrid-text {
+	border-color: #EDEDED;
+    padding-left: 4px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+}
+
+.x-treegrid-resizer {
+    border-left:1px solid;
+    border-right:1px solid;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.x-treegrid-header-inner {
+    overflow: hidden;
+}
+
+.x-treegrid-root-table,
+.x-treegrid-col {
+    border-color: #ededed;
+}
+
+.x-treegrid-resizer {
+    border-left-color:#555;
+    border-right-color:#555;
+}
+
+/* button */
+.x-treegrid-button .x-toolbar {
+    border: 0px solid;
+    padding: 0px 0px;
+	background-color: inherit;
+    background-image: none !important;
+}
+
+.x-treegrid-button-item {
+    float: left;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+}
+
+.x-treegrid-button-upgrade {
+    background-image: url(arrow_up.gif) !important;
+}
+
+.x-treegrid-button-degrade {
+    background-image: url(arrow_down.gif) !important;
+}
+
+.x-treegrid-button-add {
+    background-image: url(add.png) !important;
+}
+
+.x-treegrid-button-edit {
+    background-image: url(application_form_edit.png) !important;
+}
+
+.x-treegrid-button-remove {
+    background-image: url(remove.png) !important;
+}
+
+/*******************************************************/
+
+td.x-treegrid-col-locked {
+	/*width: 269px;border-right: 1px solid #00aaef !important;*/
+	position:absolute !important;
+	background-color: #fff;
+	z-index: 1;
+}
+td.x-treegrid-head-locked {
+	/*width: 268px;border-right: 1px solid #00aaef !important;*/
+	position:absolute !important;
+	background-color: #fafdff;
+	z-index: 2;
+	border-bottom: 1px solid #d8e3ef;
+}
+.x-tree-node .x-tree-node-over .x-treegrid-col-locked {
+	background-color: #fcf8e3 !important;
+}
+.x-tree-node .x-tree-selected .x-treegrid-col-locked {
+	background-color: #ffefbb !important;
+}
+.x-treegrid-lockdiv {
+	top:0;
+	left:0;
+	position:absolute;
+	background-color: #fff;
+	z-index: 2;
+	border-right: 1px solid #00aaef;
+}
+.x-treegrid-lockdiv .x-grid3-header {
+	height:36px;
+}
+.x-treegrid-lockdiv .x-treegrid-root-node {
+	overflow:hidden;
+}
+.x-treegrid-scrollbar {
+	height: 16px;
+	position:absolute;
+	background-color: #f2f2f2;
+	z-index: 2;
+}
+.x-treegrid-scrollbar .x-scroll-leftdiv {
+	height: 16px;
+	float: left;
+	z-index: 3;
+	border-top: 1px solid #ffffff;
+	border-right: 1px solid #00aaef;
+}
+.x-treegrid-scrollbar .x-scroll-rightdiv {
+	overflow-x:auto;
+	float: left;
+	height: 16px;
+	padding-right: 16px;
+}
+.x-treegrid-scrollbar .x-scroll-rightbar {
+	height: 16px;
+	background-color: #CCCCCC;
+	width:0;
+	float:left;
+	z-index: 3;
+}
+.x-treegrid-scrollbar .x-scroll-rightbar:hover {
+	background-color: #909090;
+}
+input.x-tree-node-cb {
+	vertical-align: top;
+}
+
+.x-treegrid-upbar {
+	width: 18px;
+	position:absolute;
+	background-color: #ffffff;
+	z-index: 2;
+	top: 36px;
+	overflow-y:auto;
+}
+.x-treegrid-upbar .x-scroll-updiv {
+	width: 18px;
+	background-color: #ffffff;
+}
+
+/*******************************************************/
+
+.x-treegrid-button .x-toolbar {
+	height: 26px !important;
+	padding: 0px !important;
+	border-bottom-width: 0 !important;
+}
+.x-treegrid-col .x-treegrid-text,
+.x-treegrid-col a.x-tree-node-anchor span {
+	padding: 3px 0 3px 3px;
+	display: inline-block;
+}
+.x-treegrid-col .x-tree-ec-icon,
+.x-treegrid-col .x-tree-node-icon {
+	margin: 3px 3px 0 0;
+}
+.x-row-editor-bwrap {background-color: #ffefbb;}
+.x-row-editor-bwrap .x-btn button,
+.x-treegrid-button-item .x-btn button {
+	padding: 3px 8px 3px 8px;
+}
+.x-tree-node-paging {
+	padding: 6px 40px 6px 20px;
+	/*background-color:#F6F6F6;
+	border-bottom:1px solid #e2e2e2;*/
+}
+.x-tree-node-paging a { color: #2B7DBC; cursor: pointer;}
+.x-tree-node-paging a:hover { color: #FF4400; }
+.x-treegrid-col {padding-top: 1px;}
+

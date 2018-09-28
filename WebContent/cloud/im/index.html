@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Jxstar-IM</title>
+
+	<link rel="shortcut icon" href="img/ico/favicon.png">
+	
+	<link rel="stylesheet" href="../resources/css/bootstrap.css">
+	<link rel="stylesheet" href="../resources/css/font-awesome.css" />
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="../resources/js/html5shiv.js"></script>
+	<script type="text/javascript" src="../resources/js/respond.js"></script>
+	<![endif]-->
+	
+    <style type="text/css">
+		h1,h2,h3,h4,h5,h6 {
+			font-family: 微软雅黑,宋体, Arial, sans-serif !important;
+		}
+		body {
+			background-color: #d9edf7;
+			font-family: 微软雅黑,宋体, Arial, sans-serif !important;
+		}
+        .im-main .navbar-inverse {
+        	min-height: 60px;
+        	border-color: #00AAEF;
+        	background-color: #00AAEF;
+        }
+        .im-main .navbar-inverse .navbar-link,
+        .im-main .navbar-inverse .navbar-text,
+        .im-main .navbar-inverse .navbar-brand {
+        	color: #FFFFFF;
+        	font-size: 16px;
+        }
+        .navbar-brand i {
+        	font-size: 24px !important;
+        }
+        .im-main .im-content {
+        	padding: 10px;
+        	margin-top: 60px;
+        	background-color: #d9edf7;
+        }
+        i.addon {
+        	margin-right: 5px;
+        }
+        .nav-pills > li > a:hover {
+        	background-color: #FFFFFF;
+        }
+        .x-nodata {
+		    padding: 100px 20px;
+		    color: #A0A0A0;
+		    font-size: 15px;
+		    text-align: center;
+        }
+        .photo-gray {
+        	-webkit-filter: grayscale(1);
+			filter: gray;/* IE6-9 */ 
+			filter: grayscale(1);/* W3C */
+			filter: url('gray.svg#grayscale');/* IE10-11 */ 
+		}
+		.user-title {
+			display: none; 
+			font-size: 16px; 
+			color: #585858; 
+			padding: 11px;
+		}
+		.user-title .state {
+			font-size: 12px;
+			margin-left: 10px;
+		}
+		.user-title .online {
+			color: #009900;
+		}
+		/****************消息列表样式**************/
+		#im_contact {
+			height: 493px; 
+			margin-top: 10px; 
+			background-color: #FFFFFF;
+			border: 1px solid #D2DADD;
+			overflow: auto;
+		}
+		.nav-msg-table {
+			list-style: none;
+			padding: 0;
+		 }
+		.nav-msg-table .msg-cell {
+			padding: 0 5px;
+			height: 64px;
+			font-size: 14px;
+			color: #393939;
+			border-bottom: 1px dashed #DCE8F1;
+		}
+		.nav-msg-table .msg-cell:hover {
+			cursor: pointer;
+			background-color: #F7F7F7;
+		}
+		.msg-cell .msg-body {
+			font-size: 15px;
+			padding-top: 10px;
+			margin-left: 63px;
+		}
+		.msg-cell.active {
+			background-color: #DFF0D8;
+		}
+		
+		.msg-body .msg-ellipsis {
+			font-size: 14px;
+			color: #8f8f94;
+			
+			overflow: hidden;
+    		white-space: nowrap;
+    		text-overflow: ellipsis;
+		}
+		.msg-cell .nav-flag {
+			color: #858585;
+			font-size: 12px;
+			margin: 13px 10px 0 0;
+		}
+		.msg-cell .del-flag {
+			display: none;
+			color: #FF6600;
+			font-size: 14px;
+			margin: 11px 10px 0 0;
+		}
+		.msg-cell:hover .del-flag:hover {
+			font-size: 16px;
+		}
+		.msg-cell:hover .del-flag {
+			display: block;
+		}
+		.msg-cell .badge {
+			background-color: #D15B47;
+			font-size: 10px;
+			margin: 13px 10px 0 0;
+		}
+		.msg-cell .msg-object {
+			float: left;
+			padding: 8px 5px;
+		}
+		.msg-object .face {
+			width: 48px;
+			height: 48px;
+			border-radius: 4px;
+		}
+		
+		/****************消息实时展现区**************/
+		.alert{
+            word-break:break-all;
+            width: 60%;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        .alert-right{
+            float: right;
+            margin-right: 12px;
+            padding: 8px 14px 8px 14px;
+        }
+        .alert-left{
+            float: left;
+            margin-left: 12px;
+            padding: 8px 14px 8px 14px;
+        }
+        #im_content_list {
+            height: 348px;
+            overflow: auto;
+            background-color: #FFFFFF;
+            border: 1px solid #D2DADD;
+        }
+        #im_content_list pre,
+        #im_content_list code {
+        	font-size: 15px;
+        	font-family: 微软雅黑,宋体, Arial, sans-serif !important;
+        }
+        #im_content_list pre {
+	    	border: none;
+	   		background: none;
+	    	margin: 0 0 0 0;
+	    }
+	    #im_send_content {
+            height: 100px; 
+            padding: 5px; 
+            border-radius: 4px; 
+            background-color: #FFFFFF;
+            border: 1px solid #D2DADD;
+        }
+        .send-icon i {
+			color: #585858;
+		}
+    </style>
+</head>
+<body onkeydown="IM.EV_keyCode(event)" onbeforeunload="IM.EV_logout()">
+<div class="im-main">
+    <div id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class="container-fluid">
+		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_login_body">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <div class="navbar-header">
+			    <a class="navbar-brand" href="#">
+			    	<i class="fa fa-cloud"></i>
+			        Jxstar IM
+			    </a>
+			    <span><audio id="im_ring" src="js/ring.mp3"></audio></span>
+		    </div>
+		    
+		    <div id="navbar_login_body" style="width: 60%; margin-left: 40%;">
+			    <div id="navbar_login" class="container navbar-right hidden">
+	                <div name="loginType" class="navbar-form navbar-right" style="display: none;" id="3">
+	                   <input id='voip_account' class="form-control" type="text" placeholder="VOIP 账号">
+	                   <input id='voip_pwd' class="form-control" type="text" placeholder="VOIP 密码">
+	                   <input class="btn btn-default" type="button" onclick="IM.DO_login()" value="登录" />
+	                </div>
+	                
+	                <div name="loginType" class="navbar-form navbar-right "  id="1">
+	                   <input id='navbar_user_account' class="form-control" type="text" placeholder="你的账号">
+	                   <input class="btn btn-default" type="button" onclick="IM.DO_login()" value="登录" />
+	                </div>
+	                
+	                <div class="navbar-form navbar-right">
+	                	<input class="btn btn-default navbar-right" type="button" onclick="IM.Check_login()" value="切换" />
+	                </div>
+	            </div>
+	            
+	            <div id="navbar_login_show" class="container navbar-right" style="display: none;">
+	            	<div class="navbar-text pull-right">
+	            		<span>当前用户：</span>
+	            		<a href="#" class="navbar-link user-name"></a>&nbsp;&nbsp;
+	            		<input type="button" class="btn btn-default" onclick="IM.EV_logout()" value="退出" />
+	            	</div>
+	            </div>
+            </div>
+		</div>
+	</div>
+	
+	<div class="navbar-fixed-top" style="z-index: 778888; width: 600px; margin: 0 auto; top: 3px; display: none;">
+        <div id="alert-error" class="alert alert-error text-center" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" onclick="IM.HTML_closeAlert('alert-error')">×</button>
+            <strong id="alert-error_content">Oh snap!...</strong>
+        </div>
+        <div id="alert-info" class="alert alert-info text-center" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" onclick="IM.HTML_closeAlert('alert-info')">×</button>
+            <strong id="alert-info_content">Oh snap!...</strong>
+        </div>
+        <div id="alert-warning" class="alert alert-warning text-center" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" onclick="IM.HTML_closeAlert('alert-warning')">×</button>
+            <strong id="alert-warning_content">Oh snap!...</strong>
+        </div>
+        <div id="alert-success" class="alert alert-success text-center" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" onclick="IM.HTML_closeAlert('alert-success')">×</button>
+            <strong id="alert-success_content">Oh snap!...</strong>
+        </div>
+    </div>
+
+    <div id="hero-unit" class="container im-content">
+        <div class="row">
+            <div class="col-md-4">
+                <ul id="im_contact_type" class="nav nav-pills" role="tablist">
+                    <li contact_type="C" winid="im_contact_list" onclick="IM.DO_choose_contact_type('C')"><a href="#"><i class="fa fa-comments addon"></i>消息</a></li>
+                    <li contact_type="G" winid="im_user_list" onclick="IM.DO_choose_contact_type('G')" class="active"><a href="#"><i class="fa fa-user addon"></i>通讯录</a></li>
+                    <li contact_type="M" winid="im_set_list" onclick="IM.DO_choose_contact_type('M')"><a href="#"><i class="fa fa-cog addon"></i>设置</a></li>
+                </ul>
+                
+                <div id="im_contact">
+                    <ul id="im_contact_list" class="nav-msg-table" style="display: none;">
+                    	<li class="x-nodata">
+                    		快选择通讯录发消息吧！
+                    	</li>
+						<!--<li class="msg-cell active" onclick="IM.DO_chooseContactList('C', 'jxstar-958-594')" id="im_contact_jxstar-958-594" im_isnotice="null" contact_type="C" contact_you="jxstar-958-594" style="display:block">
+						  <div class="msg-object">
+						    <img class="face" src="img/photo/avatar00.png" title="在线"></div>
+						  <span class="pull-right nav-flag">
+						    <i class="fa fa-angle-right bigger-150"></i>
+						  </span>
+						  <span class="pull-right nav-flag">12:45</span>
+						  <span contact_style_type="warn" class="pull-right badge" style="display: none;">0</span>
+						  <span class="pull-right del-flag" onclick="IM.DO_del_user(event)" title="删除会话"><i class="fa fa-trash-o"></i></span>
+						  <div class="msg-body">
+						    <span contact_style_type="name">陈丽红</span>
+						    <p class="msg-ellipsis">消息</p></div>
+						</li>-->
+                    </ul>
+                    
+                    <form id="im_user_qry" role="form" style="padding: 2px 0; display: ;">
+	                	<div class="form-group has-feedback" style="margin-bottom: 0;">
+	                		<label class="control-label sr-only" for="queryUsers">搜索：联系人</label>
+							<input id="user_qry" type="text" class="form-control"  onkeydown="IM.DO_search_user(event)" placeholder="搜索：联系人" id="queryUsers">
+							<span class="form-control-feedback"><i class="fa fa-search"></i></span>
+						</div>
+	                </form>
+                    <ul id="im_user_list" class="nav-msg-table" style="display: ;">
+                    	<!--<li class="msg-cell">
+                    		<div class="msg-object">
+								<img class="face" src="img/face.png">
+							</div>
+							<div class="msg-body">
+								谭志斌
+								<p class='msg-ellipsis'>研发部 | tanzb</p>
+							</div>
+                    	</li>-->
+                    </ul>
+                    
+                    <ul id="im_set_list" class="list-group" style="display: none; margin-top: 2px;;">
+                    	<li class="list-group-item">
+								弹出消息 
+								<span class=""><input type="checkbox" name="isAlert" id="isAlert" checked></span>
+                    	</li>
+                    	<li class="list-group-item">
+								阅后即焚
+								<span class=""><input type="checkbox"  name="isFire" id="isFire" ></span>
+                    	</li>
+                    	<li class="list-group-item">
+								铃声提醒
+								<span class=""><input type="checkbox" name="isRing" id="isRing" checked></span>
+                    	</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+            	<div class="row" style="height: 50px;">
+            		<div class="col-md-12">
+                		<div id="im_curr_user" class="user-title">
+                			<i class="fa fa-user addon"></i>
+                			<span class="user">联系人</span>
+                			<span class="state"></span>
+                		</div>
+                	</div>
+            	</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="im_content_list">
+                            <div id="getHistoryMsgDiv" style="width: 100%;height:20px;text-align: center;z-index: 1;position: relative;top:25px;display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-toolbar row" role="toolbar" style="padding:5px;">
+                    <div class="btn-group pull-left send-icon">
+                    	<!--<button title="发送图片" id="camera_button"  onclick="IM.DO_takePicture()" type="button" class="btn btn-default"  ><i class="fa fa-image"></i></button>-->
+                    	<button title="发送附件" id="file_button" onclick="IM.DO_im_attachment_file()" type="button" class="btn btn-default"><i class="fa fa-paperclip"></i></button>
+                    </div>
+                    <div class="btn-group pull-left">
+                    	<button id="fireMessage" onclick="IM.DO_fireMsg(this)" type="button" class="btn btn-default">阅后即焚</button>
+                    </div>
+                    
+                    <div id="sendMenu" class="btn-group col-md-4 pull-right">
+						<span style="color:#888; font-size:12px; line-height: 34px;">按下Ctrl+Enter换行</span>
+                        <span style="float:right;">
+                        	<button type="button" title="回车发送" class="btn btn-primary" onclick="IM.DO_sendMsg()"><i class="fa fa-send addon"></i>发送</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="contentEditDiv" class="row">
+                    <div class="col-md-12">
+                        <div id="im_send_content" contenteditable="true"></div>
+                        <div id="im_send_content_copy"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="lvjing" style="display: none; z-index: 668888; position: absolute; margin-left: 0px; padding-left: 0px; left: 0px; top: 0px; height: 0px; width: 0px;">
+        <canvas id="lvjing_canvas" style="border:1px solid #aaa; display: block;"></canvas>
+        <img style="display: block;position: absolute; top:0px; left:0px;" src="img/logo-blue.png" />
+    </div>
+    <div id="pop" oncontextmenu="IM.preventDefault(event)" style="display:none; z-index: 888887; width: 100%; position: absolute; top: 0px;left: 0px; margin: 0px 0 20px 0;">
+        <div class="container">
+            <div class="row" style="margin: 0px 30px 20px 30px;">
+            </div>
+        </div>
+    </div>
+
+    <div id="pop_photo" style="display:none; z-index: 888888; width: 100%; height:auto; position: absolute; top: 0px;left: 0px; margin: 5px 0 5px 0;">
+        <div class="carousel slide" imtype="pop_photo_top" style="position: relative; top: auto; left: auto; right: auto; margin: 0 auto 0px; z-index: 1; max-width: 100%;">
+            <div class="carousel-inner">
+                <div class="carousel slide" id="carousels" style="text-align: center;">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev" onclick="IM.DO_pop_photo_up()">
+            	<span class="icon-prev"><i class="fa fa-chevron-left"></i></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next" onclick="IM.DO_pop_photo_down()">
+            	<span class="icon-next"><i class="fa fa-chevron-right"></i></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next" style="height:40px; width:40px; border-radius: 100%;">
+            	<span class="icon-next right" style="top:12px; right:12px; height:36px; width:36px; border-radius: 100%; border: 3px solid #FFF;" onclick="IM.HTML_pop_photo_hide()"><i class="fa fa-remove"></i></span></a>
+        </div>
+    </div>
+</div>
+
+	<script type="text/javascript" src="js/MD5.min.js"></script>
+    <script type="text/javascript" src="js/base64.min.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.js"></script>
+    <!-- sdk -->
+    <script type="text/javascript" src="js/ytx-web-im-min-new.js"></script>
+    <!-- im -->
+    <script type="text/javascript" src="js/justdo.js"></script>
+    <!-- boostrap-->
+    <script type="text/javascript" src="../resources/js/bootstrap.js"></script>
+    
+<script type="text/javascript">
+
+    $(document).ready(function() {
+    	//在初始化方法中支持更换：_appid、_apptoken 适应未来变化
+        IM.init();
+        //自动登录
+        IM.DO_auto_login();
+        //取联系人
+        IM.DO_query_user();
+    });
+
+</script>
+
+</body>
+</html>

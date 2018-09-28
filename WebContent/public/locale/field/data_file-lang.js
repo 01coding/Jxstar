@@ -1,0 +1,1 @@
+﻿jdLang['data_file'] = {};jdLang['data_file'].zh = {};jdLang['data_file'].en = {};

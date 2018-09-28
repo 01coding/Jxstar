@@ -1,0 +1,1 @@
+﻿jdLang['wf_agree_text'] = {};jdLang['wf_agree_text'].zh = {	'wf_agree_text__agree_text':'模版内容',	'wf_agree_text__text_id':'主键'};jdLang['wf_agree_text'].en = {	'wf_agree_text__agree_text':'Template content',	'wf_agree_text__text_id':'Primary key'};

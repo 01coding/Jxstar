@@ -1,0 +1,1 @@
+﻿jdLang['im_event'] = {};jdLang['im_event'].zh = {};jdLang['im_event'].en = {};

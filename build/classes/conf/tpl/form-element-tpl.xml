@@ -1,0 +1,168 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<elements>
+	<element name='var_items'><![CDATA[
+	var items = [{
+		border:false,
+		layout:'form',
+		autoHeight:true,
+		cls:'x-form-main',
+		items:[{formitems}]
+	}];
+	]]>
+	</element>
+	
+	<element name='fieldset'><![CDATA[
+			baseCls:'xf-panel',
+			iconCls:'x-tool-toggle', 
+			title:'{title}',
+			collapsible:{collapsible},
+			collapsed:{collapsed},
+	]]>
+	</element>
+	
+	<element name='formitem'><![CDATA[
+		{
+			anchor:'100%',
+			border:false,
+			layout:'column',{fieldset}
+			autoHeight:true,
+			items:[{columnitems}
+			]
+		}
+	]]>
+	</element>
+
+	<element name='columnitem'><![CDATA[
+			{
+				border:false,
+				columnWidth:{colwidth},
+				layout:'form',
+				items:[{fielditems}
+				]
+			}
+	]]>
+	</element>
+
+	<element name='text'><![CDATA[
+		{xtype:'textfield', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', allowBlank:true, readOnly:false, anchor:'{anchor}', maxLength:100}
+	]]>
+	</element>
+	
+	<element name='file'><![CDATA[
+		{xtype:'fileuploadfield', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', allowBlank:true, readOnly:true, anchor:'{anchor}', maxLength:100}
+	]]>
+	</element>
+
+	<element name='area'><![CDATA[
+		{xtype:'textarea', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', allowBlank:true, readOnly:false, anchor:'{anchor}', height:48, maxLength:100}
+	]]>
+	</element>
+	
+	<element name='image'><![CDATA[
+		{xtype:'imagefield', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', allowBlank:true, readOnly:false, anchor:'{anchor}', height:48, maxLength:100}
+	]]>
+	</element>
+
+	<element name='number'><![CDATA[
+		{xtype:'numberfield', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', allowBlank:true, readOnly:false, anchor:'{anchor}', maxLength:22}
+	]]>
+	</element>
+
+	<element name='hidden'><![CDATA[
+		{xtype:'hidden', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', anchor:'{anchor}'}
+	]]>
+	</element>
+
+	<element name='checkbox'><![CDATA[
+		{xtype:'checkbox', fieldLabel:'{col_name}', name:'{col_code}', allowBlank:true, defaultval:'', disabled:false, anchor:'{anchor}'}
+	]]>
+	</element>
+
+	<element name='combowin'><![CDATA[
+				{xtype:'trigger', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'',
+						anchor:'{anchor}', readOnly:false, triggerClass:'x-form-search-trigger',
+						maxLength:100, allowBlank:true, editable:true,
+						onTriggerClick: function() {
+							if (this.menu == null) {
+								var selcfg = {config};
+								this.menu = Jxstar.createComboMenu(this);
+								JxSelect.createComboGrid(selcfg, this.menu, 'node_{funid}_form');
+							}
+							this.menu.show(this.el);
+						}}
+	]]>
+	</element>
+	<element name='combotree'><![CDATA[
+				{xtype:'trigger', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'',
+						anchor:'{anchor}', readOnly:false, triggerClass:'x-form-search-trigger',
+						maxLength:100, allowBlank:true, editable:true,
+						onTriggerClick: function() {
+							if (this.menu == null) {
+								var selcfg = {config};
+								this.menu = Jxstar.createComboMenu(this);
+								JxSelect.createCheckTree(selcfg, this.menu, 'node_{funid}_form');
+							}
+							this.menu.show(this.el);
+						}}
+	]]>
+	</element>
+	
+	<element name='combosel'><![CDATA[
+				{xtype:'combo', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'',
+						anchor:'{anchor}', readOnly:false, triggerClass:'x-form-search-trigger',
+						maxLength:100, allowBlank:true, editable:true,
+						listeners:{afterrender: function(combo) {
+							JxSelect.initCombo('{funid}', combo, 'node_{funid}_form');
+						}}}
+	]]>
+	</element>
+
+	<element name='selectwin'><![CDATA[
+				{xtype:'trigger', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'',
+						anchor:'{anchor}', readOnly:false, triggerClass:'x-form-search-trigger',
+						maxLength:100, allowBlank:true, editable:true,
+						onTriggerClick: function() {
+							var selcfg = {config};
+							JxSelect.createSelectWin(selcfg, this, 'node_{funid}_form');
+						}}
+	]]>
+	</element>
+
+	<element name='combo'><![CDATA[
+				{xtype:'combo', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'',
+						anchor:'{anchor}', readOnly:false, editable:false, allowBlank:true,
+						store: new Ext.data.SimpleStore({
+							fields:['value','text'],
+							data: Data{name}
+						}),
+						emptyText: jx.star.select,
+						mode: 'local',
+						triggerAction: 'all',
+						valueField: 'value',
+						displayField: 'text',
+						value: Data{name}[0][0]}
+	]]>
+	</element>
+
+	<element name='date'><![CDATA[
+		{xtype:'datefield', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', format:'Y-m-d', allowBlank:true, anchor:'{anchor}', readOnly:false}
+	]]>
+	</element>
+	<element name='datetime'><![CDATA[
+		{xtype:'datetimefield', fieldLabel:'{col_name}', name:'{col_code}', defaultval:'', format:'Y-m-d', allowBlank:true, anchor:'{anchor}', readOnly:false}
+	]]>
+	</element>
+	
+	<element name='checkboxgroup'><![CDATA[
+				{xtype:'checkboxgroup', fieldLabel:'{col_name}', name:'{col_code}',
+						anchor:'{anchor}', readOnly:false, editable:false, allowBlank:true,
+						items:JxUtil.getGroupData('{name}')}
+	]]>
+	</element>
+	<element name='radiogroup'><![CDATA[
+				{xtype:'radiogroup', fieldLabel:'{col_name}', name:'{col_code}',
+						anchor:'{anchor}', readOnly:false, editable:false, allowBlank:true,
+						items:JxUtil.getGroupData('{name}')}
+	]]>
+	</element>
+</elements>

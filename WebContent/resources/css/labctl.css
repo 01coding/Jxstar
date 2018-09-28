@@ -1,0 +1,26 @@
+.dc_tool button {
+	background-color: #fff;
+}
+.dc_tool button:hover {
+	background-color: #f2f2f2;
+}
+.dc_tool button i {
+	background-position: 0 3px;
+	background-repeat: no-repeat; 
+	width: 16px; height: 18px;
+}
+.ctl_txt{background-image:url( ../images/ctl/text.gif);}
+.ctl_barcode{background-image:url( ../images/ctl/barcode.gif);}
+.ctl_rect{background-image:url( ../images/ctl/rect.gif);}
+.ctl_block{background-image:url( ../images/ctl/block.gif);}
+.ctl_ellipse{background-image:url( ../images/ctl/ellipse.gif);}
+.ctl_line{background-image:url( ../images/ctl/line.gif);}
+.ctl_image{background-image:url( ../images/ctl/image.gif);}
+.ctl_rectr{background-image:url( ../images/ctl/rectr.gif);}
+.ctl_xie{background-image:url( ../images/ctl/xie.gif);}
+.ctl_maxi{background-image:url( ../images/ctl/maxi.gif);}
+.ctl_pdf{background-image:url( ../images/ctl/pdf.gif);}
+.ctl_datamax{background-image:url( ../images/ctl/datamax.gif);}
+.ctl_qr{background-image:url( ../images/ctl/qr.gif);}
+
+.eb_script{background-image:url( ../images/ctl/script.png);}

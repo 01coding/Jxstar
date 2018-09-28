@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Jxstar>
+	<DataSources memo="系统数据源定义">
+		<DataSource memo="oracle数据源示例">
+			<sourcename memo="数据源名">default</sourcename>
+			<schemaname memo="数据库名，构建数据表用">jxstar_cloud</schemaname>
+			<driverclass memo="驱动类">oracle.jdbc.OracleDriver</driverclass>
+			<jdbcurl memo="访问URL"><![CDATA[jdbc:oracle:thin:@localhost:1521:orcl]]></jdbcurl>
+			<username memo="数据库用户">jxstar_cloud</username>
+			<password memo="数据库密码">jxstar_cloud</password>
+			<maxconnum memo="最大连接数">50</maxconnum>
+			<maxwaittime memo="最大等待时间,ms">5000</maxwaittime>
+			<validtest memo="是否检查连接有效性:[true|false]">false</validtest>
+			<validquery memo="检查连接有效性的SQL">select count(*) from fun_base</validquery>
+			<valididle memo="是否启用检查空闲连接的线程:[true|false]">false</valididle>
+			<datasourcetype memo="数据源来源:[self|context],前者表示采用自带数据源,后者表示采用服务器数据源">self</datasourcetype>
+			<jndiname memo="服务器数据源的JNDI名称,如: jdbc/default">jdbc/default</jndiname>
+			<dbmstype memo="数据库类型">oracle</dbmstype>
+		</DataSource>
+		<DataSource memo="mysql数据源示例">
+			<sourcename memo="数据源名">default</sourcename>
+			<schemaname memo="数据库名，构建数据表用">jxstar_cloud</schemaname>
+			<driverclass memo="驱动类">org.gjt.mm.mysql.Driver</driverclass>
+			<jdbcurl memo="访问URL"><![CDATA[jdbc:mysql://localhost/jxstar_cloud?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&autoReconnect=true&useServerPrepStmts=true&prepStmtCacheSqlLimit=512]]></jdbcurl>
+			<username memo="数据库用户">root</username>
+			<password memo="数据库密码">jxstar_cloud</password>
+			<maxconnum memo="最大连接数">50</maxconnum>
+			<maxwaittime memo="最大等待时间,ms">5000</maxwaittime>
+			<validtest memo="是否检查连接有效性:[true|false]">true</validtest>
+			<validquery memo="检查连接有效性的SQL">select count(*) from fun_base</validquery>
+			<valididle memo="是否启用检查空闲连接的线程:[true|false]">true</valididle>
+			<datasourcetype memo="数据源来源:[self|context],前者表示采用自带数据源,后者表示采用服务器数据源">self</datasourcetype>
+			<datasourceprefix memo="服务器数据源的JNDI名称,如: jdbc/default">jdbc/default</datasourceprefix>
+			<dbmstype memo="数据库类型">mysql</dbmstype>
+		</DataSource>
+		<DataSource memo="sqlserver数据源示例">
+			<sourcename memo="数据源名">default_mssql</sourcename>
+			<schemaname memo="数据库名，构建数据表用">dbo</schemaname>
+			<driverclass memo="驱动类">com.microsoft.sqlserver.jdbc.SQLServerDriver</driverclass>
+			<jdbcurl memo="访问URL"><![CDATA[jdbc:sqlserver://localhost:1433;databaseName=jxstar_cloud;sendStringParametersAsUnicode=false]]></jdbcurl>
+			<username memo="数据库用户">sa</username>
+			<password memo="数据库密码">888</password>
+			<maxconnum memo="最大连接数">50</maxconnum>
+			<maxwaittime memo="最大等待时间,ms">5000</maxwaittime>
+			<validtest memo="是否检查连接有效性:[true|false]">false</validtest>
+			<validquery memo="检查连接有效性的SQL">select count(*) from fun_base</validquery>
+			<valididle memo="是否启用检查空闲连接的线程:[true|false]">false</valididle>
+			<datasourcetype memo="数据源来源:[self|context],前者表示采用自带数据源,后者表示采用服务器数据源">self</datasourcetype>
+			<datasourceprefix memo="服务器数据源的JNDI名称,如: jdbc/default">jdbc/default</datasourceprefix>
+			<dbmstype memo="数据库类型">sqlserver</dbmstype>
+		</DataSource>
+		<DataSource memo="db2数据源示例">
+			<sourcename memo="数据源名">default_db2</sourcename>
+			<schemaname memo="数据库名，构建数据表用">db2admin</schemaname>
+			<driverclass memo="驱动类">com.ibm.db2.jcc.DB2Driver</driverclass>
+			<jdbcurl memo="访问URL"><![CDATA[jdbc:db2://localhost:50000/jxstar_cloud]]></jdbcurl>
+			<username memo="数据库用户">db2admin</username>
+			<password memo="数据库密码">db2admin</password>
+			<maxconnum memo="最大连接数">50</maxconnum>
+			<maxwaittime memo="最大等待时间,ms">5000</maxwaittime>
+			<validtest memo="是否检查连接有效性:[true|false]">false</validtest>
+			<validquery memo="检查连接有效性的SQL">select count(*) from fun_base</validquery>
+			<valididle memo="是否启用检查空闲连接的线程:[true|false]">false</valididle>
+			<datasourcetype memo="数据源来源:[self|context],前者表示采用自带数据源,后者表示采用服务器数据源">self</datasourcetype>
+			<datasourceprefix memo="服务器数据源的JNDI名称,如: jdbc/default">jdbc/default</datasourceprefix>
+			<dbmstype memo="数据库类型">db2</dbmstype>
+		</DataSource>
+		<DataSource memo="oracle数据源示例">
+			<sourcename memo="数据源名">default_s1</sourcename>
+			<schemaname memo="数据库名，构建数据表用">jxstar</schemaname>
+			<driverclass memo="驱动类">oracle.jdbc.OracleDriver</driverclass>
+			<jdbcurl memo="访问URL"><![CDATA[jdbc:oracle:thin:@localhost:1521:orcl]]></jdbcurl>
+			<username memo="数据库用户">jxstar</username>
+			<password memo="数据库密码">jxstar</password>
+			<maxconnum memo="最大连接数">50</maxconnum>
+			<maxwaittime memo="最大等待时间,ms">5000</maxwaittime>
+			<validtest memo="是否检查连接有效性:[true|false]">false</validtest>
+			<validquery memo="检查连接有效性的SQL">select count(*) from fun_base</validquery>
+			<valididle memo="是否启用检查空闲连接的线程:[true|false]">false</valididle>
+			<datasourcetype memo="数据源来源:[self|context],前者表示采用自带数据源,后者表示采用服务器数据源">self</datasourcetype>
+			<jndiname memo="服务器数据源的JNDI名称,如: jdbc/default">jdbc/default</jndiname>
+			<dbmstype memo="数据库类型">oracle</dbmstype>
+		</DataSource>
+	</DataSources>
+
+	<ServerConfigs memo="服务器的其它配置项">
+		<dsname memo="缺省数据原名">default</dsname>
+		<projectcode memo="项目代号">jxstar</projectcode>
+	</ServerConfigs>
+
+	<InitConfigs memo="配置工具对象定义">
+		<InitConfig memo="SQL函数解析配置文件">
+			<parserclass memo="配置信息解析对象类名">org.jxstar.util.config.SQLParseConfigParser</parserclass>
+			<configfile memo="配置信息文件名">conf/sqlparse.xml</configfile>
+			<utilclass memo="配置工具对象类名">org.jxstar.util.config.SQLParseConfig</utilclass>
+		</InitConfig>
+	</InitConfigs>
+
+	<InitResources memo="资源文件对象定义">
+		<InitResource memo="后台返回给前台用户信息的资源文件">
+			<autoload memo="是否动态加载资源文件名:false|true">true</autoload>
+			<resourceclass memo="读取资源文件的对象类名">org.jxstar.util.resource.JsMessage</resourceclass>
+			<resourcefile memo="资源文件名,自动检索本地文件,如:hintinfo_zh_CN">jxstar</resourcefile>
+		</InitResource>
+	</InitResources>
+
+	<SystemObjects memo="定义系统核心对象的实现">
+		<SqlParser memo="SQL函数解析对象">org.jxstar.dao.util.SqlParserImp</SqlParser>
+		<fileAction memo="通用文件处理对象">org.jxstar.control.action.FileAction</fileAction>
+		<commonAction memo="通用请求处理对象">org.jxstar.control.action.CommonAction</commonAction>
+		<reportAction memo="报表输出处理对象">org.jxstar.control.action.ReportAction</reportAction>
+		<reportHtmlAction memo="报表输出处理对象">org.jxstar.control.action.ReportHtmlAction</reportHtmlAction>
+		<outputAction memo="数据导出处理对象">org.jxstar.control.action.OutputAction</outputAction>
+		<TransactionManager memo="事务管理对象">org.jxstar.dao.transaction.TransactionManagerImp</TransactionManager>
+		<ServiceProcessor memo="服务处理机">org.jxstar.service.control.ServiceProcessorImp</ServiceProcessor>
+		<ServiceController memo="服务处理控制器">org.jxstar.service.control.ServiceControllerImp</ServiceController>
+	</SystemObjects>
+
+	<SystemTasks memo="加载系统任务">
+		<SystemTask memo="加载云平台配置">
+			<startup memo="是否加载[true|false]">true</startup>
+			<classname memo="任务类名">CloudLoader</classname>
+		</SystemTask>
+		<SystemTask memo="加载设计文件模板">
+			<startup memo="是否加载[true|false]">true</startup>
+			<classname memo="任务类名">DesignTempletLoader</classname>
+			<initparam memo="初始参数名与参数值[name1=value1;name2=value2]"></initparam>
+		</SystemTask>
+		<SystemTask memo="加载数据库脚本模板">
+			<startup memo="是否加载[true|false]">true</startup>
+			<classname memo="任务类名">DmTempletLoader</classname>
+			<initparam memo="支持数据库类型[dbtype=oracle,mysql,sqlserver]">dbtype=oracle,mysql,sqlserver,db2</initparam>
+		</SystemTask>
+		<SystemTask memo="加载后台任务">
+			<startup memo="是否加载[true|false]">true</startup>
+			<classname memo="任务类名">SystemTaskLoader</classname>
+			<initparam memo="后台任务检查时间间隔，单位秒">check_time=30</initparam>
+		</SystemTask>
+	</SystemTasks>
+</Jxstar>

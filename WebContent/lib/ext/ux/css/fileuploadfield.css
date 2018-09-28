@@ -1,0 +1,75 @@
+/*!
+ * Ext JS Library 3.3.1
+ * Copyright(c) 2006-2010 Sencha Inc.
+ * licensing@sencha.com
+ * http://www.sencha.com/license
+ */
+/*
+ * FileUploadField component styles
+ */
+.x-form-file-wrap {
+    position: relative;
+    height: 30px;
+}
+.x-form-file-wrap .x-form-file {
+	position: absolute;
+	right: 0;
+	-moz-opacity:3 0;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 100;
+	width: 30px;
+    height: 30px;
+}
+.x-form-file-wrap .x-form-file-btn {
+	position: absolute;
+	right: 0;
+	z-index: 1;
+}
+.x-form-file-btn button {
+	padding: 5px 7px;
+}
+.x-form-file-wrap .x-form-file-text {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    padding: 8px 4px;
+	height: 30px;
+}
+.clear_attach{
+	cursor:pointer; 
+	margin-top:2px; 
+	width:16px; 
+	background-image:url( ../images/clear.gif) !important;
+	background-repeat: no-repeat;
+}
+
+.x-form-image-wrap {
+    position: relative;
+    height: 100%;
+	width: 100%;
+}
+.x-form-image-wrap .x-form-image {
+	border:1px solid #C7C7C7;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding-bottom: 28px;
+	background-color: #FAFDFF;
+	cursor: pointer;
+}
+.x-form-image-wrap .x-form-image-btn {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.x-form-file-btn button:hover,
+.x-form-image-btn:hover {
+	color: #FF6600;
+	background-color: #F7F7F7;
+}
+.file_link {
+	padding: 0;
+	text-decoration: underline;
+	cursor: pointer; 
+}

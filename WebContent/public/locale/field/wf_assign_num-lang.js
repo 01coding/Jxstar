@@ -1,0 +1,1 @@
+﻿jdLang['wf_assign_num'] = {};jdLang['wf_assign_num'].zh = {	'wf_instance__process_name':'任务名称',	'process_num':'任务数量',	'wf_instance__process_id':'过程ID',	'wf_assign__fun_id':'功能ID'};jdLang['wf_assign_num'].en = {	'wf_instance__process_name':'Task name',	'process_num':'Task number',	'wf_instance__process_id':'Process ID',	'wf_assign__fun_id':'Function ID'};

@@ -1,0 +1,2 @@
+	config.initpage = function(pageNode){		var event = pageNode.event;		event.on('beforeimport', function(){		var fkValue = pageNode.page.fkValue;		if (!fkValue) {			JxHint.alert(jx.util.selectno);			return false;		}		return true;	});
+};

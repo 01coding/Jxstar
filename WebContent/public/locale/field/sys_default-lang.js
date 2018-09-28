@@ -1,0 +1,1 @@
+﻿jdLang['sys_default'] = {};jdLang['sys_default'].zh = {	'funall_default__func_name':'函数名称',	'funall_default__memo':'函数描述',	'funall_default__func_id':'函数定义ID'};jdLang['sys_default'].en = {	'funall_default__func_name':'Function name',	'funall_default__memo':'Function description',	'funall_default__func_id':'Function define ID'};

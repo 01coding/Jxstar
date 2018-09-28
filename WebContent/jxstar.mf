@@ -1,0 +1,3 @@
+Manifest-Version: Jxstar v2.2.8
+SVN At revision: 12494
+

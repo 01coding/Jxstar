@@ -1,0 +1,6 @@
+.resources-assigned .sch-gantt-label-right
+{
+    background:url(images/user.png) no-repeat left center !important;
+    padding-left:20px;
+    display:block;
+}

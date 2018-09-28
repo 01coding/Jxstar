@@ -1,0 +1,1 @@
+﻿jdLang['imp_relat'] = {};jdLang['imp_relat'].zh = {	'imp_relat__relat_sql':'关系SQL',	'imp_relat__relat_id':'关系ID',	'imp_relat__imp_id':'定义ID'};jdLang['imp_relat'].en = {	'imp_relat__relat_sql':'Relat SQL',	'imp_relat__relat_id':'Relat ID',	'imp_relat__imp_id':'Define ID'};

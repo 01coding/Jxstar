@@ -1,0 +1,81 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<elements>
+	<element name='create_table'>
+	<![CDATA[CREATE TABLE [dbo].[<param:table_name/>] (
+<param:table_fields/>
+)]]>
+	</element>
+	
+	<element name='alter_table_name'>
+	<![CDATA[EXEC sp_rename N'[dbo].[<param:old_table_name/>]', '<param:table_name/>', 'OBJECT']]>
+	</element>
+	
+	<element name='drop_table'>
+	<![CDATA[DROP TABLE [dbo].[<param:table_name/>]]]>
+	</element>
+	
+	<element name='table_title'>
+	<![CDATA[EXEC sp_addextendedproperty 'MS_Description', N'<param:table_title/>', N'schema', N'dbo', N'table', N'<param:table_name/>']]>
+	</element>
+	
+	<element name='alter_table_title'>
+	<![CDATA[EXEC sp_updateextendedproperty 'MS_Description', N'<param:table_title/>', N'schema', N'dbo', N'table', N'<param:table_name/>']]>
+	</element>
+	
+	<element name='create_column'>
+	<![CDATA[<param:field_name/>	<element:data_type/> <element:default_value/> <element:nullable/>,]]>
+	</element>
+	
+	<element name='add_column'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] ADD [<param:field_name/>] <element:data_type/> <element:default_value/> <element:nullable/>]]>
+	</element>
+	
+	<element name='drop_column'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] DROP COLUMN [<param:field_name/>]]]>
+	</element>
+	
+	<element name='column_title'>
+	<![CDATA[EXEC sp_addextendedproperty 'MS_Description', N'<param:field_title/>', N'schema', N'dbo', N'table', N'<param:table_name/>', N'column', N'<param:field_name/>']]>
+	</element>
+	
+	<element name='create_primary_key'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] ADD CONSTRAINT [<param:table_name/>_PK] PRIMARY KEY CLUSTERED ([<param:key_field/>])]]>
+	</element>
+	
+	<element name='create_index'>
+	<![CDATA[CREATE INDEX [<param:index_name/>] ON [dbo].[<param:table_name/>] (<param:index_field/>)]]>
+	</element>
+	
+	<element name='create_index_unique'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] ADD CONSTRAINT [<param:index_name/>] UNIQUE (<param:index_field/>)]]>
+	</element>
+	
+	<element name='drop_index'>
+	<![CDATA[DROP INDEX [<param:index_name/>] ON [dbo].[<param:table_name/>]]]>
+	</element>
+	
+	<element name='drop_index_unique'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] DROP CONSTRAINT [<param:index_name/>]]]>
+	</element>
+	
+	<element name='alter_column_title'>
+	<![CDATA[EXEC sp_updateextendedproperty 'MS_Description', N'<param:field_title/>', N'schema', N'dbo', N'table', N'<param:table_name/>', N'column', N'<param:field_name/>']]>
+	</element>
+
+	<element name='alter_column_name'>
+	<![CDATA[EXEC sp_rename N'[dbo].[<param:table_name/>].[<param:old_field_name/>]', '<param:field_name/>', 'COLUMN']]>
+	</element>
+	
+	<element name='alter_column_type'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] ALTER COLUMN [<param:field_name/>] <element:data_type/>]]>
+	</element>
+	
+	<element name='alter_column_default'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] ADD <element:alert_default_value/> FOR [<param:field_name/>]]]>
+	</element>
+
+	<element name='alter_column_nullable'>
+	<![CDATA[ALTER TABLE [dbo].[<param:table_name/>] ALTER COLUMN [<param:field_name/>] <element:data_type/> <element:alert_nullable/>]]>
+	</element>
+	
+</elements>

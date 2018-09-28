@@ -1,0 +1,65 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<elements>
+	<element name='create_table'>
+	<![CDATA[create table `<param:table_name/>` (
+<param:table_fields/>
+) comment '<param:table_title/>';]]>
+	</element>
+	
+	<element name='alter_table_name'>
+	<![CDATA[alter table `<param:old_table_name/>` rename as `<param:table_name/>`;]]>
+	</element>
+	
+	<element name='drop_table'>
+	<![CDATA[drop table `<param:table_name/>`;]]>
+	</element>
+	
+	<element name='table_title'>
+	<![CDATA[alter table `<param:table_name/>` comment='<param:table_title/>';]]>
+	</element>
+	
+	<element name='create_column'>
+	<![CDATA[`<param:field_name/>` <element:data_type/> <element:nullable/> <element:default_value/> comment '<param:field_title/>',]]>
+	</element>
+	
+	<element name='add_column'>
+	<![CDATA[alter table `<param:table_name/>` add column `<param:field_name/>` <element:data_type/> <element:nullable/> <element:default_value/> comment '<param:field_title/>';]]>
+	</element>
+	
+	<element name='drop_column'>
+	<![CDATA[alter table `<param:table_name/>` drop column `<param:field_name/>`;]]>
+	</element>
+	
+	<element name='column_title'>
+	<![CDATA[alter table `<param:table_name/>` modify column `<param:field_name/>` <element:data_type/> <element:nullable/> <element:default_value/> comment '<param:field_title/>';]]>
+	</element>
+	
+	<element name='create_primary_key'>
+	<![CDATA[alter table `<param:table_name/>` add primary key (`<param:key_field/>`);]]>
+	</element>
+	
+	<element name='create_index'>
+	<![CDATA[alter table `<param:table_name/>` add index `<param:index_name/>` (<element:index_field/>);]]>
+	</element>
+	
+	<element name='create_index_unique'>
+	<![CDATA[alter table `<param:table_name/>` add unique index `<param:index_name/>` (<element:index_field/>);]]>
+	</element>
+	
+	<element name='drop_index'>
+	<![CDATA[alter table `<param:table_name/>` drop index `<param:index_name/>`;]]>
+	</element>
+	
+	<element name='drop_index_unique'>
+	<![CDATA[alter table `<param:table_name/>` drop index `<param:index_name/>`;]]>
+	</element>
+	
+	<element name='alter_column_name'>
+	<![CDATA[alter table `<param:table_name/>` change column `<param:old_field_name/>` `<param:field_name/>` <element:data_type/> <element:nullable/> <element:default_value/> comment '<param:field_title/>';]]>
+	</element>
+	
+	<element name='alter_column'>
+	<![CDATA[alter table `<param:table_name/>` modify column `<param:field_name/>` <element:data_type/> <element:nullable/> <element:default_value/> comment '<param:field_title/>';]]>
+	</element>
+	
+</elements>

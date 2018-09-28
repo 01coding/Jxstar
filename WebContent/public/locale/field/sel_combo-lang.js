@@ -1,0 +1,1 @@
+﻿jdLang['sel_combo'] = {};jdLang['sel_combo'].zh = {	'v_combo_control__control_code':'控件代号',	'v_combo_control__control_name':'控件名称'};jdLang['sel_combo'].en = {	'v_combo_control__control_code':'Control code',	'v_combo_control__control_name':'Controls name'};

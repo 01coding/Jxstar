@@ -1,0 +1,1 @@
+﻿		config.initpage = function(gridNode){		var event = gridNode.event;		var grid = gridNode.page;					};		config.eventcfg = {		//数据导入查询扩展		dataImportParam: function() {			//获取功能ID			var fun_id = this.grid.orderDetFunId;			var options = {				whereSql:'fun_col.fun_id = ?',				whereType:'string',				whereValue:fun_id			};			return options;		}			};

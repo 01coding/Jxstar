@@ -1,0 +1,104 @@
+
+/* for menu tree */
+.menu_scrolldiv {
+	background-color: #929292;
+}
+.menu_bg{
+	background-color:#f9fafc;/*f8f8f8*/
+}
+.menu_bg .x-tree-node i,
+.x-menu-two .x-menu-item-text i {
+	color:#3c8dbc;/*3c8dbc 31B0D5*/
+}
+.menu_bg .x-tree-node a span,
+.x-menu-two .x-menu-item-text {
+	color:#333333;
+}
+.x-tree-node div.one-menu{
+	background-color:#f9fafc;
+	border-bottom: 0px solid #E5E5E5;
+}
+.x-tree-node div.one-menu + ul{
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.x-tree-node-leaf.three-menu,
+.x-tree-node div.two-menu{
+	background-color:#EFEFEF;
+}
+.menu_bg div.x-tree-node-over,
+.menu_bg div.x-tree-selected {
+	background-color: rgba(0,0,0,0.1);/*E08374 FCAC6F FF9900*/
+}
+.menu_bg div.x-tree-node-over i,
+.menu_bg div.x-tree-selected i {
+	color:#31B0D5;
+}
+.menu_bg div.x-tree-selected  a span,
+.menu_bg div.x-tree-node-over a span{
+	color:#444;
+}
+.x-menu-two {
+	background-color:#f9fafc;
+}
+.x-menu-two .x-menu-item-active {/*FCAC6F ffefbb*/
+	/*background-color:#ffefbb;*/
+	border-color: #f2f2f2;
+	background-color: rgba(0,0,0,0.1);
+}
+.x-menu-two .x-menu-item-active a.x-menu-item {
+	border-color:#f2f2f2;
+}
+.menu_bg .two-menu.x-tree-selected {
+	border-right:3px solid #31B0D5;
+}
+.xme-panel-header .x-panel-inline-icon .fa {
+	color: #116644 !important;
+}
+
+/********* top nav *********/
+.top_bg {background-color: #00a65a;}/*116644 00a65a 1fa67a*/
+.top-fun-text{background-color:rgba(0,0,0,0.1); color:#f2f2f2;}/*D15B47*/
+.top-fun-text:hover {color:#fff;background-color:rgba(0,0,0,0.15);}/*#E08374;*/
+.top-fun-img {color:#e0e0e0;}
+.top-fun-img:hover {color:#E08374 !important;}
+
+.top-nav,.top-nav li.blue a {background-color:#00a65a;}
+.top-nav li.blue a:hover {background-color:rgba(0,0,0,0.1);}
+
+.x-main-tab {border-left: 1px solid #d2d6de; background-color:#ecf0f5;}
+.x-portal-bg .x-panel-body {background-color:#ecf0f5;}
+.x-portlet .x-panel-body {background: white;}
+
+/********* toolbar tabs *********/
+.x-toolbar {border-bottom-color: #31B0D5 !important;}
+.x-tab-panel-header {border-bottom: 1px solid #31B0D5;}
+.x-tab-strip-top .x-tab-strip-active .x-tab-strip-inner {
+    border-bottom: 2px solid #31B0D5;
+}
+.x-pagebar .x-btn button {color: #31B0D5 !important;}
+
+/********* window *********/
+.x-window-proxy {border-color:#31B0D5;}
+.x-window-tc, 
+.x-window-tl, 
+.x-window-tr, 
+.x-window-bc, 
+.x-window-bl, 
+.x-window-br, 
+.x-window-mc, 
+.x-window-ml, 
+.x-window-mr {background-color:#31B0D5;}
+.x-panel-btns {border-bottom: 6px solid #31B0D5;}
+.x-window-footer .x-btn-mc, .x-panel-footer .x-btn-mc {
+    background-color: #31B0D5;
+}
+.x-window-footer .x-btn-mc:hover, 
+.x-panel-footer .x-btn-mc:hover {
+	background-color:#269ABC !important;/*31B0D5 269ABC*/
+}
+.x-tool:hover:enabled {color: #31B0D5;}
+
+/********* left buttom *********/
+.main_collpse:hover {background-color:rgba(0,0,0,0.1);}/*1b926c*/
+.collpse .main_collpse {background-color:rgba(0,0,0,0.1);}

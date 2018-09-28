@@ -1,0 +1,1 @@
+﻿jdLang['sys_doc_plet'] = {};jdLang['sys_doc_plet'].zh = {};jdLang['sys_doc_plet'].en = {};

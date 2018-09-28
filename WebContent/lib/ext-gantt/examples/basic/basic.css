@@ -1,0 +1,14 @@
+.taskTip
+{
+	font-size:11px;
+}
+
+.taskTip td
+{
+	width:70px;
+}
+
+.icon-add
+{
+    background:url(images/add.png) no-repeat left center !important;
+}

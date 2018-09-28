@@ -1,0 +1,1 @@
+﻿jdLang['fun_ext'] = {};jdLang['fun_ext'].zh = {	'fun_ext__grid_initpage':'Grid扩展文件',	'fun_ext__form_initpage':'Form扩展文件',	'fun_ext__ext_id':'扩展ID',	'fun_ext__fun_id':'功能ID'};jdLang['fun_ext'].en = {	'fun_ext__grid_initpage':'Grid inc file',	'fun_ext__form_initpage':'Form inc file',	'fun_ext__ext_id':'Extension ID',	'fun_ext__fun_id':'Function ID'};

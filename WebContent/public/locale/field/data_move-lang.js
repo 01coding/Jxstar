@@ -1,0 +1,1 @@
+﻿jdLang['data_move'] = {};jdLang['data_move'].zh ={};jdLang['data_move'].en = {};

@@ -1,0 +1,1 @@
+﻿jdLang['wx_event'] = {};jdLang['wx_event'].zh = {};jdLang['wx_event'].en = {};

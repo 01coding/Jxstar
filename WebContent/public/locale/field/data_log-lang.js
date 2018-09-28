@@ -1,0 +1,1 @@
+﻿jdLang['data_log'] = {};jdLang['data_log'].zh = {};jdLang['data_log'].en = {};

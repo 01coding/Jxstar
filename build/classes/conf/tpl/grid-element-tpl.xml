@@ -1,0 +1,215 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<elements>
+	<element name='editor_text'><![CDATA[
+		editable:true,
+		editor:new Ext.form.TextField({
+			maxLength:100, allowBlank:true
+		})
+	]]>
+	</element>
+
+	<element name='editor_number'><![CDATA[
+		align:'right',
+		editable:true,
+		editor:new Ext.form.NumberField({
+			maxLength:22, allowBlank:true
+		})
+	]]>
+	</element>
+
+	<element name='editor_combowin'><![CDATA[
+		editable:true,
+		editor:new Ext.form.TriggerField({
+			maxLength:100,
+			myeditable:false, allowBlank:true,
+			triggerClass:'x-form-search-trigger', 
+			onTriggerClick: function() {
+				if (this.menu == null) {
+					var selcfg = {config};
+					this.menu = Jxstar.createComboMenu(this);
+					JxSelect.createComboGrid(selcfg, this.menu, 'node_{funid}_editgrid');
+				}
+				this.menu.show(this.el);
+			}
+		})
+	]]>
+	</element>
+	
+	<element name='editor_combotree'><![CDATA[
+		editable:true,
+		editor:new Ext.form.TriggerField({
+			maxLength:100,
+			myeditable:false, allowBlank:true,
+			triggerClass:'x-form-search-trigger', 
+			onTriggerClick: function() {
+				if (this.menu == null) {
+					var selcfg = {config};
+					this.menu = Jxstar.createComboMenu(this);
+					JxSelect.createCheckTree(selcfg, this.menu, 'node_{funid}_editgrid');
+				}
+				this.menu.show(this.el);
+			}
+		})
+	]]>
+	</element>
+	
+	<element name='editor_combosel'><![CDATA[
+		editable:true,
+		editor:new Ext.form.ComboBox({
+			maxLength:100, name:'{col_code}', 
+			editable:true, allowBlank:true,
+			triggerClass:'x-form-search-trigger', 
+			listeners:{afterrender: function(combo) {
+				JxSelect.initCombo('{funid}', combo, 'node_{funid}_editgrid');
+			}}
+		})
+	]]>
+	</element>
+
+	<element name='editor_selectwin'><![CDATA[
+		editable:true,
+		editor:new Ext.form.TriggerField({
+			maxLength:100,
+			myeditable:false, allowBlank:true,
+			triggerClass:'x-form-search-trigger', 
+			onTriggerClick: function() {
+				var selcfg = {config};
+				JxSelect.createSelectWin(selcfg, this, 'node_{funid}_editgrid');
+			}
+		})
+	]]>
+	</element>
+
+	<element name='editor_combo'><![CDATA[
+		align:'center',
+		editable:true,
+		editor:new Ext.form.ComboBox({
+			store: new Ext.data.SimpleStore({
+				fields:['value','text'],
+				data: Data{name}
+			}),
+			emptyText: jx.star.select,
+			mode: 'local',
+			triggerAction: 'all',
+			valueField: 'value',
+			displayField: 'text',
+			editable:false, allowBlank:true,
+			value: Data{name}[0][0]
+		}),
+		renderer:function(value){
+			for (var i = 0; i < Data{name}.length; i++) {
+				if (Data{name}[i][0] == value)
+					return Data{name}[i][1];
+			}
+		}
+	]]>
+	</element>
+
+	<element name='render_combo'><![CDATA[
+		align:'center',
+		renderer:function(value){
+			for (var i = 0; i < Data{name}.length; i++) {
+				if (Data{name}[i][0] == value)
+					return Data{name}[i][1];
+			}
+		}
+	]]>
+	</element>
+
+	<element name='editor_date'><![CDATA[
+		align:'center',
+		editable:true,
+		editor:new Ext.form.DateField({
+			format: 'Y-m-d', allowBlank:true,
+			minValue: '1900-01-01'
+		}),
+		renderer:function(value) {
+			return JxUtil.renderDate(value, 'Y-m-d');
+		}
+	]]>
+	</element>
+
+	<element name='render_date'><![CDATA[
+		align:'center',
+		renderer:function(value) {
+			return JxUtil.renderDate(value, 'Y-m-d');
+		}
+	]]>
+	</element>
+	
+	<element name='editor_datetime'><![CDATA[
+		align:'center',
+		editable:true,
+		editor:new Ext.ux.DateTimeField({
+			format: 'Y-m-d', allowBlank:true,
+			minValue: '1900-01-01'
+		}),
+		renderer:function(value) {
+			return JxUtil.renderDate(value, 'Y-m-d');
+		}
+	]]>
+	</element>
+
+	<element name='render_datetime'><![CDATA[
+		align:'center',
+		renderer:function(value) {
+			return JxUtil.renderDate(value, 'Y-m-d');
+		}
+	]]>
+	</element>
+	
+	<element name='render_number'><![CDATA[
+		align:'right'
+	]]>
+	</element>
+
+	<element name='editor_checkbox'><![CDATA[
+		align:'center',
+		editable:true,
+		editor:new Ext.form.Checkbox(),
+		renderer:function(value) {
+			return value=='1' ? jx.base.yes : jx.base.no;
+		}
+	]]>
+	</element>
+
+	<element name='editor_checkboxgroup'><![CDATA[
+		align:'center',
+		editable:true,
+		editor:new Ext.form.CheckboxGroup({
+			editable:false, allowBlank:true,
+			items:JxUtil.getGroupData('{name}')
+		}),
+		renderer:function(value) {
+			return JxUtil.getGroupText(value, '{name}');
+		}
+	]]>
+	</element>
+	<element name='editor_radiogroup'><![CDATA[
+		align:'center',
+		editable:true,
+		editor:new Ext.form.RadioGroup({
+			editable:false, allowBlank:true,
+			items:JxUtil.getGroupData('{name}')
+		}),
+		renderer:function(value) {
+			return JxUtil.getGroupText(value, '{name}');
+		}
+	]]>
+	</element>
+	<element name='render_checkboxgroup'><![CDATA[
+		align:'center',
+		renderer:function(value) {
+			return JxUtil.getGroupText(value, '{name}');
+		}
+	]]>
+	</element>
+	<element name='render_radiogroup'><![CDATA[
+		align:'center',
+		renderer:function(value) {
+			return JxUtil.getGroupText(value, '{name}');
+		}
+	]]>
+	</element>
+	
+</elements>

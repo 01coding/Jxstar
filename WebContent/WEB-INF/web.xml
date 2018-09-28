@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <display-name>Welcome to Jxstar</display-name>
+  <!-- Define Jxstar Filter -->
+  <!-- cachetype param is cache file type; expires param is expires day num -->
+  <filter>
+    <filter-name>jxstarFilter</filter-name>
+    <filter-class>org.jxstar.control.filter.JxstarFilter</filter-class>
+    <init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+		<param-name>illegalsql</param-name>
+		<param-value>; system.; sys.; drop ; delete ; update ; create ;</param-value>
+    </init-param>
+  </filter>
+  <filter>
+    <filter-name>oneLoginFilter</filter-name>
+    <filter-class>org.jxstar.control.login.OneLoginFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>xssFilter</filter-name>
+    <filter-class>org.jxstar.control.filter.XSSFilter</filter-class>
+  </filter>
+
+  <!-- Define Jxstar Filter Mapping -->
+  <filter-mapping>
+    <filter-name>xssFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>jxstarFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>oneLoginFilter</filter-name>
+    <url-pattern>/page.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>oneLoginFilter</filter-name>
+    <url-pattern>/main.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>oneLoginFilter</filter-name>
+    <url-pattern>/check.jsp</url-pattern>
+  </filter-mapping>
+  
+  <!-- Define Jxstar Listener -->
+  <listener><listener-class>org.jxstar.control.filter.UserHttpSessionListener</listener-class></listener>
+
+  <!-- Define Jxstar Control Servlet -->
+  <servlet>
+    <servlet-name>startup</servlet-name>
+    <servlet-class>org.jxstar.control.StartupController</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>conf/server.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logfile</param-name>
+      <param-value>conf/log.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>Action</servlet-name>
+    <servlet-class>org.jxstar.control.AjaxController</servlet-class>
+	<init-param>
+      <param-name>Allow-Origin</param-name>
+      <param-value>*</param-value>
+    </init-param>
+	<init-param>
+      <param-name>Allow-Method</param-name>
+      <param-value>GET, POST</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>Gzip</servlet-name>
+    <servlet-class>org.jxstar.control.GzipServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>attach</servlet-name>
+    <servlet-class>org.jxstar.service.attach.http.AttachServlet</servlet-class>
+    <init-param>
+      <param-name>safeip</param-name>
+      <param-value>192.168.0.102</param-value>
+    </init-param>
+	<init-param>
+      <param-name>safekey</param-name>
+      <param-value>MT9KPN3LZP90VE2MVU59I</param-value>
+    </init-param>
+  </servlet>
+
+  <!-- Define the Control Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>startup</servlet-name>
+    <url-pattern>/reload.rd</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Gzip</servlet-name>
+    <url-pattern>/public/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>attach</servlet-name>
+    <url-pattern>/attach.dx</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>300</session-timeout>
+  </session-config>
+
+  <mime-mapping>
+    <extension>xls</extension>
+    <mime-type>application/vnd.ms-excel</mime-type>
+  </mime-mapping>
+  <!-- In weblogic has layout_cloud.js load error, add js-mime is ok! -->
+  <mime-mapping>
+    <extension>js</extension>
+    <mime-type>text/html;charset=UTF-8</mime-type>
+  </mime-mapping>
+  
+  <welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

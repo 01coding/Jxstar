@@ -1,0 +1,122 @@
+/* Style 2 */
+.style2 .sch-gantt-label-left
+{
+    background: none repeat scroll 0 0 white;
+    color: black;
+    opacity: 0.3;
+    filter:alpha(opacity=50);
+    padding: 0 5px;
+    white-space: nowrap;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    zoom:1;
+    font-weight:bold;
+    border: 1px solid #AAAAAA;
+}
+
+.style2 .sch-gantt-label-left:hover
+{
+    opacity: 0.6;
+    filter:alpha(opacity=70);
+}
+
+
+.style2 .sch-gantt-parenttask-arrow 
+{
+	border-color: #AAAAAA transparent transparent;
+}
+
+.style2 .sch-gantt-parenttask-bar  
+{
+    -webkit-box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5);
+    -moz-box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5); 
+    border: 1px solid #AAAAAA;
+	background: #E5ECF5;
+}
+
+.style2 .sch-gantt-parenttask-bar .sch-gantt-progress-bar 
+{
+    background:#ababab url(../images/transp-1px.png) repeat-x;
+}
+
+.style2 .sch-gantt-task-bar
+{
+    border-color:goldenrod;
+    -webkit-box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5);
+    -moz-box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5); 
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    height: 10px;
+    top:1px;
+    position:relative;
+}
+
+.style2 .sch-dependency-line {
+    border: 1px dotted SlateGray;
+}
+  
+.style2 .sch-gantt-milestone-diamond
+{
+    background-position:0 -48px;
+}
+
+.style2 .sch-gantt-task-bar .sch-gantt-progress-bar 
+{
+    background:gold url(../images/transp-1px.png) repeat-x;
+    height:8px;
+}
+
+.style2 .x-grid3-unlocked .x-grid3-row
+{
+    border-top: 1px dashed transparent;
+}
+
+.style2 .x-grid3-row
+{
+    background:transparent !important;
+    border-top:0;
+}
+
+.style2 .x-grid3-locked .x-grid3-row
+{
+    border-bottom: 1px dotted Wheat;
+}
+
+.style2 .x-grid3-locked .x-grid3-scroller
+{
+    background:LightYellow !important;
+}
+
+.style2 .x-grid3-unlocked .x-grid3-scroller
+{
+}
+
+.ext-ie .style2 .x-grid3-unlocked .x-grid3-scroller
+{
+    background:lightyellow;
+}
+
+.ext-gecko .style2 .x-grid3-unlocked .x-grid3-body
+{
+    background:-moz-linear-gradient(90deg, rgba(166, 216, 166, 0.65), rgba(255, 255, 255, 0.95)) repeat scroll 0 0 transparent
+}
+
+.ext-webkit .style2 .x-grid3-unlocked .x-grid3-body
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(166, 216, 166, 0.65)), to(rgba(255, 255, 255, 0.95)));
+}
+
+.style2 .sch-dependency-arrow-left
+{
+    border-color: transparent slategray transparent transparent;
+}
+
+.style2 .sch-dependency-arrow-right
+{
+    border-color: transparent transparent transparent slategray;
+}
+
+.style2 .sch-dependency-arrow-down
+{
+    border-color: slategray transparent;
+}

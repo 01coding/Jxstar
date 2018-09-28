@@ -1,0 +1,1 @@
+﻿jdLang['oa_news_plet'] = {};jdLang['oa_news_plet'].zh = {};jdLang['oa_news_plet'].en = {};

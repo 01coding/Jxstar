@@ -1,0 +1,72 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<elements>
+	<element name='create_table'>
+	<![CDATA[create table <param:table_name/> (
+<param:table_fields/>
+);]]>
+	</element>
+	
+	<element name='alter_table_name'>
+	<![CDATA[rename table <param:old_table_name/> to <param:table_name/>;]]>
+	</element>
+	
+	<element name='drop_table'>
+	<![CDATA[drop table <param:table_name/>;]]>
+	</element>
+	
+	<element name='table_title'>
+	<![CDATA[comment on table <param:table_name/> is '<param:table_title/>';]]>
+	</element>
+	
+	<element name='create_column'>
+	<![CDATA[<param:field_name/>	<element:data_type/> <element:nullable/> <element:default_value/>,]]>
+	</element>
+	
+	<element name='add_column'>
+	<![CDATA[alter table <param:table_name/> add column <param:field_name/> <element:data_type/> <element:nullable/> <element:default_value/>;]]>
+	</element>
+	
+	<element name='drop_column'>
+	<![CDATA[alter table <param:table_name/> drop column <param:field_name/> restrict;]]>
+	</element>
+	
+	<element name='column_title'>
+	<![CDATA[comment on column <param:table_name/>.<param:field_name/> is '<param:field_title/>';]]>
+	</element>
+	
+	<element name='create_primary_key'>
+	<![CDATA[alter table <param:table_name/> add constraint pk_<param:table_name/> primary key (<param:key_field/>);]]>
+	</element>
+	
+	<element name='create_index'>
+	<![CDATA[create index <param:index_name/> on <param:table_name/> (<param:index_field/>);]]>
+	</element>
+	
+	<element name='create_index_unique'>
+	<![CDATA[create unique index <param:index_name/> on <param:table_name/> (<param:index_field/>);]]>
+	</element>
+	
+	<element name='drop_index'>
+	<![CDATA[drop index <param:index_name/>;]]>
+	</element>
+	
+	<element name='drop_index_unique'>
+	<![CDATA[drop index <param:index_name/>;]]>
+	</element>
+
+	<element name='alter_column_name'>
+	<![CDATA[alter table <param:table_name/> rename column <param:old_field_name/> to <param:field_name/>;]]>
+	</element>
+	
+	<element name='alter_column_type'>
+	<![CDATA[alter table <param:table_name/> alter column <param:field_name/> set data type <element:data_type/>;]]>
+	</element>
+	
+	<element name='alter_column_default'>
+	<![CDATA[alter table <param:table_name/> alter column <param:field_name/> <element:alert_default_value/>;]]>
+	</element>
+
+	<element name='alter_column_nullable'>
+	<![CDATA[alter table <param:table_name/> alter column <param:field_name/> <element:alert_nullable/>;]]>
+	</element>
+</elements>

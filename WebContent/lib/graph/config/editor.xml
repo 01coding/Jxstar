@@ -1,0 +1,265 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<mxEditor defaultGroup="group" defaultEdge="connector">
+
+	<include name="lib/graph/config/keyhandler.xml"/>
+	<add as="onInit"><![CDATA[
+		function (isFirstTime) {
+			onMxInit(this);
+		}
+	]]></add>
+	<ui>
+		<add as="graph" element="mx_graph"/>
+		<add as="toolbar" element="mx_toolbar"/>
+	</ui>
+	<Array as="templates">
+		<add as="group">
+			<mxCell vertex="1" style="group" connectable="0"/>
+		</add>
+		<add as="connector">
+			<mxCell edge="1">
+				<mxGeometry as="geometry" relative="1"/>
+			</mxCell>
+		</add>
+		<add as="swimlane">
+			<mxCell value="阶段" vertex="1" style="swimlane" connectable="0">
+				<mxGeometry as="geometry" width="200" height="200"/>
+			</mxCell>
+		</add>
+		<add as="rectangle">
+			<mxCell vertex="1" style="rectangle">	
+				<mxGeometry as="geometry" width="100" height="40"/>
+			</mxCell>
+		</add>
+		<add as="start">
+			<mxCell value="开始" vertex="1" style="cloud" nodetype="start">		
+				<mxGeometry as="geometry" width="80" height="40"/>
+			</mxCell>
+		</add>
+		<add as="end">
+			<mxCell value="结束" vertex="1" style="ellipse" nodetype="end">		
+				<mxGeometry as="geometry" width="40" height="40"/>
+			</mxCell>
+		</add>
+		<add as="task">
+			<mxCell value="任务" vertex="1" style="rounded" nodetype="task">		
+				<mxGeometry as="geometry" width="100" height="40"/>
+			</mxCell>
+		</add>
+		<add as="select">
+			<mxCell value="判断" vertex="1" style="ellipse" nodetype="select">		
+				<mxGeometry as="geometry" width="80" height="60"/>
+			</mxCell>
+		</add>
+		<add as="fork">
+			<mxCell value="并发" vertex="1" style="actor" nodetype="fork">		
+				<mxGeometry as="geometry" width="100" height="30"/>
+			</mxCell>
+		</add>
+		<add as="join">
+			<mxCell value="聚合" vertex="1" style="rectangle" nodetype="join">		
+				<mxGeometry as="geometry" width="100" height="10"/>
+			</mxCell>
+		</add>
+		<add as="subprocess">
+			<mxCell value="子过程" vertex="1" style="cloud" nodetype="subprocess">		
+				<mxGeometry as="geometry" width="100" height="60"/>
+			</mxCell>
+		</add>
+		<add as="image">
+			<mxCell value="审批任务" vertex="1" style="image" nodetype="task">	
+				<mxGeometry as="geometry" width="100" height="50"/>
+			</mxCell>
+		</add>
+		
+		<add as="text">
+			<mxCell value="注释" vertex="1" style="text" nodetype="text">	
+				<mxGeometry as="geometry" width="100" height="20"/>
+			</mxCell>
+		</add>
+	</Array>
+	<mxGraph as="graph" alternateEdgeStyle="verticalConnector" allowLoops="1" dropEnabled="1">
+		<add as="isAutoSizeCell"><![CDATA[
+			function(cell)
+			{
+				return mxUtils.isNode(this.model.getValue(cell), 'text');
+			}
+		]]></add>
+		<add as="isSwimlane"><![CDATA[
+			function (cell)
+			{
+				return mxUtils.isNode(this.model.getValue(cell), 'container');
+			}
+		]]></add>
+		<add as="getTooltipForCell"><![CDATA[
+			function(cell)
+			{
+				return '<b>'+cell.getValue()+
+						'</b> ('+cell.getId()+')'+
+						'<br>Style: '+cell.getStyle()+
+						'<br>Connections: '+cell.getEdgeCount()+
+						'<br>Children: '+cell.getChildCount();
+			}
+		]]></add>
+		<add as="convertValueToString"><![CDATA[
+			function(cell)
+			{
+				return cell.getValue();
+			}
+		]]></add>
+		<mxStylesheet as="stylesheet">
+			<add as="text">
+				<add as="shape" value="rectangle"/>
+				<add as="perimeter" value="rectanglePerimeter"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="left"/>
+				<add as="verticalAlign" value="top"/>
+				<add as="shadow" value="0"/>
+				<add as="strokeColor" value="none"/>
+				<add as="fillColor" value="none"/>
+				<add as="gradientColor" value="none"/>
+			</add>
+			<add as="defaultVertex" extend="text">
+				<add as="shape" value="rectangle"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="shadow" value="1"/>
+				<add as="strokeColor" value="#87CEFA"/>
+				<add as="fillColor" value="#87CEFA"/>
+				<add as="gradientColor" value="white"/>
+			</add>
+			<add as="group">
+				<add as="shape" value="rectangle"/>
+				<add as="perimeter" value="rectanglePerimeter"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="strokeColor" value="gray"/>
+				<add as="dashed" value="1"/>
+				<add as="fillColor" value="#C7C7C7"/>
+				<add as="shadow" value="0"/>
+			</add>
+			<add as="defaultEdge">
+				<add as="shape" value="connector"/>
+				<add as="fontSize" value="12"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="middle"/>
+				<add as="rounded" value="1"/>
+				<add as="labelBackgroundColor" value="white"/>
+				<add as="strokeColor" value="#36393D"/>
+				<add as="strokeWidth" value="1"/>
+				<add as="edgeStyle" value="elbowEdgeStyle"/>
+				<add as="endArrow" value="classic"/>
+			</add>
+			<add as="verticalConnector">
+				<add as="elbow" value="vertical"/>
+			</add>
+			<add as="straightConnector">
+				<add as="shape" value="connector"/>
+				<add as="dashed" value="1"/>
+				<add as="strokeColor" value="red"/>
+				<add as="fillColor" value="red"/>
+			</add>
+			<add as="arrowConnector">
+				<add as="shape" value="arrow"/>
+				<add as="fillColor" value="#87CEFA"/>
+				<add as="endSize" value="20"/>
+				<remove as="edgeStyle"/>
+			</add>
+			<add as="swimlane">
+				<add as="shape" value="swimlane"/>
+				<add as="shadow" value="0"/>
+				<add as="startSize" value="23"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="top"/>
+				<add as="strokeColor" value="#EEEEEE"/>
+				<add as="fillColor" value="#D4D4D4"/>
+			</add>
+			<add as="rounded">
+				<add as="rounded" value="1"/>
+				<add as="strokeColor" value="#87CEFA"/>
+				<add as="fillColor" value="#87CEFA"/>
+			</add>
+			<add as="doubleEllipse" extend="ellipse">
+				<add as="shape" value="doubleEllipse"/>
+				<add as="strokeColor" value="#C0504D"/>
+				<add as="fillColor" value="#C0504D"/>
+			</add>
+			<add as="rhombus">
+				<add as="shape" value="rhombus"/>
+				<add as="perimeter" value="rhombusPerimeter"/>
+				<add as="strokeColor" value="#F79646"/>
+				<add as="fillColor" value="#F79646"/>
+			</add>
+			<add as="triangle" extend="rhombus">
+				<add as="shape" value="triangle"/>
+				<add as="perimeter" value="trianglePerimeter"/>
+				<add as="align" value="center"/>
+				<add as="verticalAlign" value="center"/>
+				<add as="direction" value="south"/>
+				<add as="strokeColor" value="#F79646"/>
+				<add as="fillColor" value="#F79646"/>
+			</add>
+			<add as="hexagon">
+				<add as="shape" value="hexagon"/>
+				<add as="strokeColor" value="#9BBB59"/>
+				<add as="fillColor" value="#9BBB59"/>
+			</add>
+			<add as="cloud">
+				<add as="shape" value="cloud"/>
+				<add as="perimeter" value="ellipsePerimeter"/>
+				<add as="strokeColor" value="#4BACC6"/>
+				<add as="fillColor" value="#4BACC6"/>
+			</add>
+			<add as="rect">
+				<add as="shape" value="rectangle"/>
+				<add as="strokeColor" value="#F79646"/>
+				<add as="fillColor" value="#F79646"/>
+				<add as="verticalLabelPosition" value="top"/>
+				<add as="spacingTop" value="7"/>
+			</add>
+			<add as="image">
+				<add as="shape" value="image"/>
+				<add as="perimeter" value="rectanglePerimeter"/>
+				<add as="verticalLabelPosition" value="bottom"/>
+				<add as="spacingTop" value="-15"/>
+				<add as="image" value="lib/graph/images/dude.png"/>
+			</add>
+		</mxStylesheet>
+		<mxGraphModel as="model">
+			<root>
+				<mxCell id="0"/>
+				<mxCell id="1" parent="0"/>
+			</root>
+		</mxGraphModel>
+	</mxGraph>
+	<mxDefaultToolbar as="toolbar">
+		<add as="连接线" mode="connect" icon="lib/graph/images/connect.gif"><![CDATA[
+			function (editor)
+			{
+				if (editor.defaultEdge != null)
+				{
+					editor.defaultEdge.style = null;
+				}
+			}
+		]]></add>
+		<add as="反向线" mode="connect" icon="lib/graph/images/straight.gif"><![CDATA[
+			function (editor)
+			{
+				if (editor.defaultEdge != null)
+				{
+					editor.defaultEdge.style = 'straightConnector';
+				}
+			}
+		]]></add>
+		<br/><br/>
+		<add as="开始节点" template="start" style="hexagon" icon="lib/graph/images/hexagon.gif"/>
+		<add as="结束节点" template="end" style="doubleEllipse" icon="lib/graph/images/doubleellipse.gif"/>
+		<add as="任务节点" template="task" style="rounded" icon="lib/graph/images/rounded.gif"/>
+		<add as="判断节点" template="select" style="rhombus" icon="lib/graph/images/rhombus.gif"/>
+		<add as="并发节点" template="fork" style="triangle" icon="lib/graph/images/triangle.gif"/>
+		<add as="聚合节点" template="join" style="rect" icon="lib/graph/images/hline.gif"/>
+		<add as="图片节点" template="image" icon="lib/graph/images/image.gif"/>
+		<add as="子过程节点" template="subprocess" style="cloud" icon="lib/graph/images/cloud.gif"/>
+	</mxDefaultToolbar>
+</mxEditor>

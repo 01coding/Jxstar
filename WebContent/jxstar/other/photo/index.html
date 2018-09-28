@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>phote</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function upload(f) {
+			var jx = window.top.Jxstar;
+			if (jx && jx.uploadPic) {
+				var frm = window.frameElement;
+				jx.uploadPic(f, frm.gridId, frm.winId);
+			}
+		}
+		function onUploadSuccess(d){
+			var f = d.replace(/\s+/gi,'');
+			//alert(f);
+			upload(f);
+			alert('上传成功！');
+		}
+	</script>
+	<span style="font-size:9pt;">先点击“拍照”，确定效果后，再点击“保存”。<br>可以多次点击“拍照”，重新确定效果。<br><br><span>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+		codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0"
+		width="324" height="275" id="photo" align="middle">
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="false" />
+		<param name="FlashVars" value="servicesUrl=save.jsp" />
+		<param name="movie" value="photo.swf" />
+		<param name="quality" value="high" />
+		<param name="bgcolor" value="#ffffff" />
+		<embed src="photo.swf" quality="high" bgcolor="#ffffff" width="324"
+			height="275" name="photo" align="middle"
+			allowScriptAccess="sameDomain" allowFullScreen="false"
+			type="application/x-shockwave-flash"
+			pluginspage="http://www.adobe.com/go/getflashplayer_cn" />
+	</object>
+</body>
+</html>

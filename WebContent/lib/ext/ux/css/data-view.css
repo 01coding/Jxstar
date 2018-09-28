@@ -1,0 +1,189 @@
+/*!
+ * Ext JS Library 3.3.1
+ * Copyright(c) 2006-2010 Sencha Inc.
+ * licensing@sencha.com
+ * http://www.sencha.com/license
+ */
+#images-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#images-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+#images-view .thumb img{
+	height: 90px;
+	width: 120px;
+}
+#images-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+#images-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+#images-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+	padding: 4px;
+}
+
+#images-view .x-view-selected{
+	background: #eff5fb url(../images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+#images-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+#images-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+
+/*  data cards styles  */
+
+ul.datacards {
+    position: relative;
+    display: block;
+    height: auto;
+	margin: 0px auto;
+}
+
+ul.datacards li.card {
+    float: left;
+	width:220px;
+	height:120px;
+	padding:10px;
+	color:#fff;
+	font-size: 13px;
+	display: block;
+	position: relative;
+    overflow: hidden;
+    cursor: pointer;
+	border-radius: 3px;
+	background-color:#3FB2A5;
+	/*#8F8F94 gray #F14E41 red #5CB85C green #00AAEF blue*/
+}
+ul.datacards li div {
+	line-height: 22px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+ul.datacards li div.title {
+	font-weight: bold;
+}
+ul.datacards li span.state {
+    top: 5px;
+    right: 10px;
+    float: right;
+    position: absolute;
+}
+ul.datacards li span.run {
+	background-color: #00CED1;;
+}
+ul.datacards li.run {
+	background-color: #3FB2A5;;
+}
+ul.datacards li span.stop {
+	background-color: #F14E41;;
+}
+ul.datacards li.stop {
+	background-color: #D15B47;;
+}
+
+ul.datacards li .x-btn {
+	color: #333;
+	white-space: nowrap;
+	border: 0 none;
+	background-color: #f2f2f2;
+	padding: 2px 5px;
+	cursor: pointer;
+	outline: 0 none;
+	margin: 2px 2px 0 0;
+	border-radius: 2px;
+}
+
+ul.datacards li.card-hover {
+    background-color: #00CED1;
+}
+
+ul.datacards li.x-view-selected {
+    background-color: #00CED1;
+    border-radius: 5px;
+}
+
+/************************grid col locked*******************************/
+
+.x-grid3-lockdiv {
+	top:0;
+	left:0;
+	position:absolute;
+	background-color: #fff;
+	z-index: 2;
+	border-right: 1px solid #00aaef;
+	overflow:hidden;
+}
+.x-grid3-lockdiv .x-grid3-header {
+	height:35px;
+}
+.x-grid3-lockdiv .x-grid3-body {
+	overflow:hidden;
+}
+.x-grid3-scrollbar {
+	height: 16px;
+	position:absolute;
+	background-color: #f2f2f2;
+	z-index: 2;
+}
+.x-grid3-scrollbar .x-scroll-leftdiv {
+	height: 16px;
+	float: left;
+	z-index: 3;
+	border-right: 1px solid #00aaef;
+}
+.x-grid3-scrollbar .x-scroll-rightdiv {
+	overflow-x:auto;
+	float: left;
+	height: 16px;
+	padding-right: 16px;
+}
+.x-grid3-scrollbar .x-scroll-rightbar {
+	height: 16px;
+	background-color: #CCCCCC;
+	width:0;
+	float:left;
+	z-index: 3;
+}
+.x-grid3-scrollbar .x-scroll-rightbar:hover {
+	background-color: #909090;
+}
+/***** head div, row div misplaced *****/
+.x-grid3-lockdiv .x-grid3-body .x-grid3-cell-inner {
+	width: inherit;
+}
+.x-grid3-header-inner {
+	height: 34px;
+}
+
+.x-gray {
+	color:#BBBBBB;
+	text-align:center;
+}
+.x-gray:hover {
+	cursor:pointer;
+	color:#2B7DBC;
+	text-align:center;
+}
